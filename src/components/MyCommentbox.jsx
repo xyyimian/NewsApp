@@ -16,7 +16,7 @@ class PageWithComments extends React.Component {
     render() {
 
         return (
-            <div className="commentbox" />
+            <div className="commentbox" id={this.props.id}/>
         );
     }
 }
