@@ -55,7 +55,7 @@ function NewsCard(props) {
                 <Card.Title>{props.title}</Card.Title>
                 <Card.Text>
                     <span>{props.date.substring(0,10)}</span>
-                    <span style={{ float: 'right' }}>
+                    <span style={{ position:'absolute', right:'120px' }}>
                         <FacebookShareButton data-tip='Facebook' url={props.url} quote={hashtag} children="">
                             <FacebookIcon size={25} round={true} />
                         </FacebookShareButton>
@@ -67,10 +67,10 @@ function NewsCard(props) {
                         </EmailShareButton>
                     </span>
 
-                    <span margin="100px">
-                        <Button data-tip='Bookmark' variant='link' onClick={() => { handleClick() }}>
+                    <span style={{ position:'absolute', right:'25px' }}>
+                        <Button data-tip='Bookmark' style={{paddingTop:'0px'}} variant='link' onClick={() => { handleClick() }}>
                             <IconContext.Provider value={{ color: "red", className: "bookmark-icon" }}>
-                                {isSaved ? <FaBookmark /> : <FaRegBookmark />}
+                                {isSaved ? <FaBookmark size="1.3rem"/> : <FaRegBookmark size="1.3rem"/>}
                             </IconContext.Provider>
                         </Button>
                     </span>
