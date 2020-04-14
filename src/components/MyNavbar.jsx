@@ -83,14 +83,13 @@ function MyNavbar(props) {
     return (
         <Navbar className="bg-grad" expand="lg">
         {InitHome()}
+            <SearchBox />
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between"> 
-                <SearchBox />
                 <Form inline>
-                    <Nav style={{position: 'absolute', left: '280px'}}>
-
+                    <Nav className="mr-auto">
                         <Nav.Link onClick={SectionReq} href="">
-                            <span className={'navkey'+!selected.localeCompare("home") && 'sel-navkey'} >
+                            <span className='navkey' style={!selected.localeCompare("home") ? { color: 'white' } : {}} >
                                 Home
                             </span>
                         </Nav.Link>
@@ -138,8 +137,8 @@ function MyNavbar(props) {
                                     <Switch onColor={'#0387ee'} checked={props.switchst} onChange={handleSwitch} value={props.switchst} draggable={false} checkedIcon={false} uncheckedIcon={false} />
                                 </div>
                             </div>
-                                <Navbar.Text style={{color:'#ffffff',padding:'0 10px 0 8px'}}>Guardian</Navbar.Text>
-                            </div>
+                            <Navbar.Text style={{color:'#ffffff',padding:'0 10px 0 8px'}}>Guardian</Navbar.Text>
+                        </div>
                     }
                 </Form>
             </Navbar.Collapse>
