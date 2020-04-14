@@ -72,15 +72,23 @@ function MyNavbar(props) {
 
 
 
-    /******************************/
-
+    /********** Init ************/
+    const [init, setInit] = useState(true);
+    function InitHome(){
+        if(init){
+            setInit(false);
+            tcSectionReq('nyt', 'home');
+        }
+    }
     return (
         <Navbar className="bg-grad" expand="lg">
+        {InitHome()}
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between"> 
                 <SearchBox />
                 <Form inline>
                     <Nav style={{position:'relative',left:'-200px'}}>
+
                         <Nav.Link onClick={SectionReq} href="">
                             <span className={'navkey'+!selected.localeCompare("home") && 'sel-navkey'} >
                                 Home
