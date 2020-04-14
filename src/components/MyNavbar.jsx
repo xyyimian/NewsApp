@@ -72,15 +72,20 @@ function MyNavbar(props) {
 
 
 
-    /******************************/
-
+    /********** Init ************/
+    const [init, setInit] = useState(true);
+    function InitHome(){
+        if(init){
+            setInit(false);
+            tcSectionReq('nyt', 'home');
+        }
+    }
     return (
         <Navbar className="bg-grad" expand="lg">
+        {InitHome()}
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between">
-                <Form inline 
-                // onKeyUp={(e) => bingAutosuggest(e.target.value)}
-                >
+                <Form inline>
                     <SearchBox />
                     <Nav>
                         <Nav.Link onClick={SectionReq} href="">

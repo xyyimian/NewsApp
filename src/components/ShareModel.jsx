@@ -8,7 +8,6 @@ import {
 
 
 function ShareModel(props){
-    console.log(props)
     const hashtag = "CSCI_571_NewsApp";
 
 
