@@ -121,15 +121,16 @@ function MyNavbar(props) {
         <Navbar className="bg-grad" expand="lg">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between">
-                <Form inline 
-                // onKeyUp={(e) => bingAutosuggest(e.target.value)}
-                >
-                    <Select 
+                <Select 
                         onSubmit={SearchReq}
                         onInputChange={handleSchQuery}
                         placeholder={'Enter Keyword..'} 
                         options={searchOptions} 
-                    />
+                />
+                <Form inline 
+                // onKeyUp={(e) => bingAutosuggest(e.target.value)}
+                >
+                    
                     <Nav>
                         <Nav.Link onClick={SectionReq} href="">
                             <span className={'navkey'+!selected.localeCompare("home") && 'sel-navkey'} >
