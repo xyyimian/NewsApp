@@ -9,6 +9,7 @@ import { FaAngleDown, FaAngleUp } from "react-icons/fa"
 import { FaRegBookmark, FaBookmark } from 'react-icons/fa'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ReactTooltip from "react-tooltip";
 
 function NewsCard(props) {
     const hashtag = "CSCI_571_NewsApp"
@@ -49,24 +50,25 @@ function NewsCard(props) {
     return (
         <div>
             <ToastContainer />
+            <ReactTooltip />
             <Card className='shadow p-3 mb-5 bg-white rounded news-card'>
                 <Card.Title>{props.title}</Card.Title>
                 <Card.Text>
                     <span>{props.date.substring(0,10)}</span>
                     <span style={{ float: 'right' }}>
-                        <FacebookShareButton url={props.url} quote={hashtag} children="">
+                        <FacebookShareButton data-tip='Facebook' url={props.url} quote={hashtag} children="">
                             <FacebookIcon size={25} round={true} />
                         </FacebookShareButton>
-                        <TwitterShareButton url={props.url} hashtags={[hashtag]} children="">
+                        <TwitterShareButton data-tip='Twitter' url={props.url} hashtags={[hashtag]} children="">
                             <TwitterIcon size={25} round={true} />
                         </TwitterShareButton>
-                        <EmailShareButton subject={'#' + hashtag} url={props.url}>
+                        <EmailShareButton data-tip='Email' subject={'#' + hashtag} url={props.url}>
                             <EmailIcon size={25} round={true} />
                         </EmailShareButton>
                     </span>
 
                     <span margin="100px">
-                        <Button variant='link' onClick={() => { handleClick() }}>
+                        <Button data-tip='Bookmark' variant='link' onClick={() => { handleClick() }}>
                             <IconContext.Provider value={{ color: "red", className: "bookmark-icon" }}>
                                 {isSaved ? <FaBookmark /> : <FaRegBookmark />}
                             </IconContext.Provider>
