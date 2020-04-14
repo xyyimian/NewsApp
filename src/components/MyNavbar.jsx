@@ -74,8 +74,8 @@ function MyNavbar(props) {
 
     /********** Init ************/
     const [init, setInit] = useState(true);
-    function InitHome(){
-        if(init){
+    function InitHome() {
+        if (init) {
             setInit(false);
             tcSectionReq('nyt', 'home');
         }
@@ -123,7 +123,7 @@ function MyNavbar(props) {
 
                 <Form inline>
                     <span margin="100px">
-                        <Button variant='link' onClick={() => {onSelected("favorites"); props.onLoading(false, '/favorites'); }}>
+                        <Button variant='link' onClick={() => { onSelected("favorites"); props.onLoading(false, '/favorites'); }}>
                             <IconContext.Provider value={{ color: "white", className: "bookmark-icon" }}>
                                 {props.path === "/favorites" ? <FaBookmark /> : <FaRegBookmark />}
                             </IconContext.Provider>
@@ -131,13 +131,13 @@ function MyNavbar(props) {
                     </span>
                     {props.path !== "/search" && props.path !== "/favorites" && props.path !== "/news" &&
                         <div>
-                            <Navbar.Text style={{color:'#ffffff',padding:'0 10px 0 0'}}>NYTimes</Navbar.Text>
-                            <div style={{display: 'inline-block'}}>
-                                <div style={{float: 'left',height: '50%',marginBottom: '-15px'}}>
+                            <Navbar.Text style={{ color: '#ffffff', padding: '0 10px 0 0' }}>NYTimes</Navbar.Text>
+                            <div style={{ display: 'inline-block' }}>
+                                <div style={{ float: 'left', height: '50%', marginBottom: '-15px' }}>
                                     <Switch onColor={'#0387ee'} checked={props.switchst} onChange={handleSwitch} value={props.switchst} draggable={false} checkedIcon={false} uncheckedIcon={false} />
                                 </div>
                             </div>
-                            <Navbar.Text style={{color:'#ffffff',padding:'0 10px 0 8px'}}>Guardian</Navbar.Text>
+                            <Navbar.Text style={{ color: '#ffffff', padding: '0 10px 0 8px' }}>Guardian</Navbar.Text>
                         </div>
                     }
                 </Form>

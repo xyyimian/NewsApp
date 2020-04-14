@@ -44,7 +44,7 @@ function SearchBox(){
             return callback([ { label: 'No Match', value: 1 }]);
         }
         else{
-            setTimeout(() => {bingAutosuggest(inputValue)});
+            setTimeout(() => {bingAutosuggest(inputValue)}, 1000);
             return callback(searchOptions);
         }
     };
@@ -52,9 +52,10 @@ function SearchBox(){
 
     return (
         <AsyncSelect 
+            cacheOptions
             value={inputValue}
-            // onSubmit={SearchReq}
-            onChange={handleInputChange}
+            // onSubmit={(e) => {e.preventDefault(); window.alert("sb!!")}}
+            onInputChange={handleInputChange}
             placeholder={'Enter Keyword..'} 
             loadOptions={loadOptions}
         />
