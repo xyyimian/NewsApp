@@ -82,17 +82,14 @@ function MyNavbar(props) {
     }
     return (
         <Navbar className="bg-grad" expand="lg">
-            {/* {InitHome()} */}
+        {InitHome()}
+            <SearchBox />
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between">
-                
-                <SearchBox />
-                
+            <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between"> 
                 <Form inline>
-                    <Nav style={{ position: 'absolute', left: '280px' }}>
-
+                    <Nav className="mr-auto">
                         <Nav.Link onClick={SectionReq} href="">
-                            <span className={'navkey' + !selected.localeCompare("home") && 'sel-navkey'} >
+                            <span className='navkey' style={!selected.localeCompare("home") ? { color: 'white' } : {}} >
                                 Home
                             </span>
                         </Nav.Link>
