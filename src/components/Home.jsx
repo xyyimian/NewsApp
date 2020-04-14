@@ -14,6 +14,7 @@ function Home(props) {
                 changeContent={props.changeContent}
                 key={index}
                 id={info.id}
+                url={info.url}
                 title={info.title}
                 description={info.description}
                 section={info.section}

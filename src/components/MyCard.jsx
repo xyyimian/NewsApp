@@ -45,7 +45,7 @@ function MyCard(props) {
                             <Card.Title>
                             <div className='ib' onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.changeContent, props.section) }}>
                                 {props.title}
-                            </div>                            
+                            </div>
                             <ShareModel
                                 title={props.title}
                                 url={props.url}
@@ -70,7 +70,10 @@ function SchCard(props) {
         <a onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.changeContent) }}>
             <div className='col-lg-3' style={{ display: 'inline-block' }}>
                 <Card className='shadow p-3 mb-5 bg-white rounded'>
-                    <Card.Title className='truncateTitle'>{props.title}}</Card.Title>
+                    <Card.Title>
+                    <div className='truncateTitle'>{props.title}</div>
+                     <ShareModel title={props.title} url={props.url} />
+                    </Card.Title>
                     <Card.Img className='toplineImg' variant=''
                         src={props.image} />
                     <div>
@@ -90,6 +93,7 @@ function BmCard(props) {
             <Card className='shadow p-3 mb-5 bg-white rounded' style={{margin: '2% 0'}}>
                 <Card.Title >
                     <p className='truncateTitle' onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.changeContent, props.section) }}>{props.title}</p>
+                    <ShareModel title={props.title} url={props.url} />
                     <FaTrash onClick={() => {notify("Removing ",props.title); props.removeBmContent(props.id); props.onLoading(false, '/favorites'); }} />
                 </Card.Title>
                 <Card.Img className='toplineImg' variant='' src={props.image} onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.changeContent, props.section) }} />

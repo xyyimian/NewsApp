@@ -121,31 +121,15 @@ function MyNavbar(props) {
         <Navbar className="bg-grad" expand="lg">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between">
-                <Form inline onKeyUp={(e) => bingAutosuggest(e.target.value)} onSubmit={SearchReq}>
-{/*                     
-                    <Dropdown name='dropdown'>
-                        <InputGroup>
-                        <FormControl type="text" placeholder="Enter keyword .." name='qvalue' style={{borderTopWidth:'2px',borderBottomWidth:'2px',borderColor:'white'}}/>
-                        <InputGroup.Append style={{backgroundColor:'white',paddingTop:'5px',color:'#cccccc'}}>|</InputGroup.Append>
-                        <InputGroup.Append>
-                        <Dropdown.Toggle id='dropdown-split-basic' style={{backgroundColor:'white',border:'0px',color:'#cccccc'}}/>
-                        <Dropdown.Menu>
-                            {searchOptions.map((info, index) => {
-                                return(
-                                    <Dropdown.Item key={index}>{info}</Dropdown.Item>
-                                );
-                            })}
-                        </Dropdown.Menu>
-                        
-                        </InputGroup.Append>
-                        </InputGroup>
-                    </Dropdown> */}
-
-
+                <Form inline 
+                // onKeyUp={(e) => bingAutosuggest(e.target.value)}
+                >
                     <Select 
+                        onSubmit={SearchReq}
                         onInputChange={handleSchQuery}
                         placeholder={'Enter Keyword..'} 
-                        options={searchOptions}/>
+                        options={searchOptions} 
+                    />
                     <Nav>
                         <Nav.Link onClick={SectionReq} href="">
                             <span className={'navkey'+!selected.localeCompare("home") && 'sel-navkey'} >

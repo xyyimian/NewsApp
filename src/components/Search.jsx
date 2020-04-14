@@ -13,6 +13,7 @@ function Search(props) {
                   changeContent={props.changeContent}
                   id={info.id}
                   key={index}
+                  url={info.url}
                   title={info.title}
                   section={info.section}
                   image={info.image}

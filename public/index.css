@@ -1,0 +1,146 @@
+.Navbar.Collapse div{
+  display: inline-block;
+}
+
+.bg-grad {
+  /* background-color: rgb(9, 9, 88); */
+  background: linear-gradient(to right,#142243, #365Dae);
+}
+
+.navkey {
+  color: #8684a0;
+}
+
+.navkey:hover{
+  color: white;
+}
+
+.sel-navkey {
+  color: white;
+}
+
+.toplineImg {
+  height: 200px;
+}
+
+.articleImg {
+  width: 90%;
+}
+
+.NewsDate {
+  display: inline-block;
+  font-style: italic;
+}
+.NewsTag {
+  /* margin-left: 70%; */
+  float: right;
+  padding: 0 1%;
+  font-size: 12px;
+  color: white;
+  display: inline-block;
+  background-color: #6e757c;
+  border-radius: 4px;
+}
+
+.worldTag{
+  background-color: #7c4eff;
+}
+
+.politicsTag{
+  background-color: #419488;
+}
+
+.businessTag{
+  background-color: #4696ec;
+}
+
+.technologyTag{
+  background-color: #cedc39;
+}
+
+.sportsTag{
+  background-color: #f6c244;
+}
+
+.guardianTag{
+  background-color: #14284A;
+}
+
+.nytimesTag{
+  background-color: #dddddd;
+}
+
+.news-card {
+  width: 98%;
+  margin: auto;
+}
+
+.truncateDescription {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.truncateTitle{
+  white-space: nowrap;
+	overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.indicator {
+  font-size: 30px;
+  margin-left: 1%;
+}
+
+.ib {
+  display: inline-block;
+}
+
+.unstyled-but {
+  border: none;
+  outline: none;
+  background-color: white;
+}
+
+.mymodal {
+  font-size: 12px;
+  display: block;
+  width: 500px;
+  height: 300px;
+  position: fixed;
+  margin: auto;
+}
+
+
+ .modal > .header {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  font-size: 18px;
+  text-align: center;
+  padding: 5px;
+  position: relative;
+}
+
+
+.modal > .content {
+  width: 100%;
+  padding: 10px 5px;
+  position: relative;
+  text-align: center;
+}
+/*
+.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+  position: relative;
+} */

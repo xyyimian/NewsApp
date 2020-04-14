@@ -18,6 +18,7 @@ function Favorites(props) {
                 removeBmContent={props.removeBmContent}
                 key={index}
                 id={info.id}
+                url={info.url}
                 title={info.title}
                 section={info.section}
                 image={info.image}
