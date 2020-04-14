@@ -1,12 +1,12 @@
 import React, { useState } from "react"
 import AsyncSelect from 'react-select/lib/Async';
+import { defaultProps } from "react-select/lib/Select";
 
-function SearchBox(){
+function SearchBox(props){
 
     const bing_key = '4d04d04e40264f9a8ea2c88fa1fbedee'
 
     function bingAutosuggest(query){
-        console.log('bingschquery' + query)
         var endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/Suggestions";
         var request = new XMLHttpRequest();
         try {
@@ -32,7 +32,7 @@ function SearchBox(){
         
         setSchOpt(results.suggestionGroups[0].searchSuggestions.map((e, index) => {return {label: e.displayText, value: index}} ))
     }
-    const [searchOptions, setSchOpt] = useState([ { label: 'No Match', value: 1 }])
+    const [searchOptions, setSchOpt] = useState()
     /***************** */
     
     const [inputValue, setInputValue] = useState("");
@@ -44,8 +44,8 @@ function SearchBox(){
             return callback([ { label: 'No Match', value: 1 }]);
         }
         else{
-            setTimeout(() => {bingAutosuggest(inputValue)}, 1000);
-            return callback(searchOptions);
+            bingAutosuggest(inputValue);
+            setTimeout(() => {callback(searchOptions)}, 1000);
         }
     };
 
@@ -53,8 +53,9 @@ function SearchBox(){
     return (
         <AsyncSelect 
             cacheOptions
-            value={inputValue}
-            // onSubmit={(e) => {e.preventDefault(); window.alert("sb!!")}}
+            // value={inputValue}
+            defaultOptions={[ { label: 'No Match', value: 1 }]}
+            onChange={(e) => {props.searchReq(e)}}
             onInputChange={handleInputChange}
             placeholder={'Enter Keyword..'} 
             loadOptions={loadOptions}

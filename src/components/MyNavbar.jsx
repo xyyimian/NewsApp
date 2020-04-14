@@ -48,9 +48,8 @@ function MyNavbar(props) {
         props.onLoading(false, '/search');
     }
 
-    function SearchReq(event) {
-        event.preventDefault()
-        var query = event.target.qvalue.value;
+    function SearchReq(q) {
+        var query = q.label;
         if (props.switchst) {
             var type = 'guardian'
         } else {
@@ -82,8 +81,8 @@ function MyNavbar(props) {
     }
     return (
         <Navbar className="bg-grad" expand="lg">
-        {InitHome()}
-            <SearchBox />
+        {/* {InitHome()} */}
+            <SearchBox searchReq={SearchReq}/>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between"> 
                 <Form inline>
