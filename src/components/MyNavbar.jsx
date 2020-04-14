@@ -4,8 +4,8 @@ import { FormControl, Navbar, Nav, Form } from "react-bootstrap"
 import { IconContext } from "react-icons"
 import { FaRegBookmark, FaBookmark } from 'react-icons/fa'
 import { Button, Dropdown } from "react-bootstrap"
-import InputGroup from 'react-bootstrap/InputGroup'
 import Select from "react-select"
+import SearchBox from "./SearchBox"
 
 function MyNavbar(props) {
     const [selected, setSelected] = useState('home');
@@ -67,51 +67,8 @@ function MyNavbar(props) {
     }
     /******************************/
     //bing search
-    const bing_key = '4d04d04e40264f9a8ea2c88fa1fbedee'
-
-    function bingAutosuggest(query){
-        console.log(query)
-        var endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/Suggestions";
-        var request = new XMLHttpRequest();
-        try {
-            request.open('GET', endpoint + "?q=" + encodeURIComponent(query));
-        } catch (error) {
-            console.log(error);
-            return false;
-        }
-        request.setRequestHeader("Ocp-Apim-Subscription-Key", bing_key);
-        request.addEventListener('load', function() {
-            if(this.status == 200){
-                renderSearchResults(JSON.parse(this.responseText));
-            }
-            else{
-                console.log(this.status)
-                console.log(this.statusText)
-            }
-        })
-        request.send();
-        return false;
-    }    
-    function renderSearchResults(results) {
-        
-        setSchOpt(results.suggestionGroups[0].searchSuggestions.map((e, index) => {return {label: e.displayText, value: index}} ))
-        console.log(searchOptions);
-    }
-    const [searchOptions, setSchOpt] = useState([ { label: 'No Match', value: 1 }])
 
     /************dropdown***********/
-    const loadOptions = (inputValue) => {
-        bingAutosuggest(inputValue);
-    }
-
-    const [query, setQuery] = useState("");
-
-    const handleSchQuery = (newValue, callback) => {
-        const inputValue = newValue.replace(/\W/g, "");
-        bingAutosuggest(inputValue);
-        return inputValue;
-    };
-
 
 
 
@@ -120,17 +77,11 @@ function MyNavbar(props) {
     return (
         <Navbar className="bg-grad" expand="lg">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between">
-                <Select 
-                        onSubmit={SearchReq}
-                        onInputChange={handleSchQuery}
-                        placeholder={'Enter Keyword..'} 
-                        options={searchOptions} 
-                />
+            <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between"> 
                 <Form inline 
                 // onKeyUp={(e) => bingAutosuggest(e.target.value)}
                 >
-                    
+                    <SearchBox />
                     <Nav>
                         <Nav.Link onClick={SectionReq} href="">
                             <span className={'navkey'+!selected.localeCompare("home") && 'sel-navkey'} >
