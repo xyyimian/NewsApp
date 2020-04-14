@@ -87,7 +87,7 @@ function MyNavbar(props) {
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between"> 
                 <SearchBox />
                 <Form inline>
-                    <Nav style={{position:'relative',left:'-200px'}}>
+                    <Nav style={{position: 'absolute', left: '280px'}}>
 
                         <Nav.Link onClick={SectionReq} href="">
                             <span className={'navkey'+!selected.localeCompare("home") && 'sel-navkey'} >
