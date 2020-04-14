@@ -12,9 +12,10 @@ function ShareModel(props){
 
 
     const contentStyle = {
-        maxWidth: '600px',
+        maxWidth: '412px',
         width: '90%',
-        height: '300px'
+        height: '162px',
+        padding: '10px'
       };
 
     return(
@@ -22,18 +23,25 @@ function ShareModel(props){
             {close => {return (
                 <div className="mymodal">
                     <a className='close' onClick={close}>&times;</a>
-                    <div className='content'>{props.title}</div>
-                    <div className='header'>Share via</div>
+                    <div className='content' style={{fontSize:'1rem',width:'370px'}}>{props.title}</div>
+                    <hr />
+                    <div className='header' style={{fontSize:'1rem',textAlign:'center'}}>Share via</div>
                     <div>
+                        <div style={{padding:'0 40px', display:'inline'}}>
                         <FacebookShareButton url={props.url} quote={hashtag} children="">
-                            <FacebookIcon size={25} round={true} />
+                            <FacebookIcon size={50} round={true} />
                         </FacebookShareButton>
+                        </div>
+                        <div style={{padding: '0 40px', display:'inline' }}>
                         <TwitterShareButton url={props.url} hashtags={[hashtag]} children="">
-                            <TwitterIcon size={25} round={true} />
+                            <TwitterIcon size={50} round={true} />
                         </TwitterShareButton>
+                        </div>
+                        <div style={{padding: '0 40px', display:'inline' }}>
                         <EmailShareButton subject={'#' + hashtag} url={props.url}>
-                            <EmailIcon size={25} round={true} />
-                        </EmailShareButton>                        
+                            <EmailIcon size={50} round={true} />
+                        </EmailShareButton>       
+                        </div>                 
                     </div>
                 </div>
             )}}

@@ -106,8 +106,8 @@
 .mymodal {
   font-size: 12px;
   display: block;
-  width: 500px;
-  height: 300px;
+  width: 390px;
+  height: 140px;
   position: fixed;
   margin: auto;
 }
@@ -148,5 +148,4 @@
 .css-1rtrksz{
   height: 36px;
   width: 216px;
-
 }
