@@ -87,32 +87,32 @@ function MyNavbar(props) {
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between"> 
                 <Form inline>
                     <Nav className="mr-auto">
-                        <Nav.Link onClick={SectionReq} href="">
+                        <Nav.Link onClick={SectionReq} href="" style={{margin:'8px',padding:'0'}}>
                             <span className='navkey' style={!selected.localeCompare("home") ? { color: 'white' } : {}} >
                                 Home
                             </span>
                         </Nav.Link>
-                        <Nav.Link onClick={SectionReq} href="">
+                        <Nav.Link onClick={SectionReq} href="" style={{margin:'8px',padding:'0'}}>
                             <span className='navkey' style={!selected.localeCompare("world") ? { color: 'white' } : {}}>
                                 World
                             </span>
                         </Nav.Link>
-                        <Nav.Link onClick={SectionReq} href="">
+                        <Nav.Link onClick={SectionReq} href="" style={{margin:'8px',padding:'0'}}>
                             <span className='navkey' style={!selected.localeCompare("politics") ? { color: 'white' } : {}}>
                                 Politics
                             </span>
                         </Nav.Link>
-                        <Nav.Link onClick={SectionReq} href="">
+                        <Nav.Link onClick={SectionReq} href="" style={{margin:'8px',padding:'0'}}>
                             <span className='navkey' style={!selected.localeCompare("business") ? { color: 'white' } : {}}>
                                 Business
                         </span>
                         </Nav.Link>
-                        <Nav.Link onClick={SectionReq} href="">
+                        <Nav.Link onClick={SectionReq} href="" style={{margin:'8px',padding:'0'}}>
                             <span className='navkey' style={!selected.localeCompare("technology") ? { color: 'white' } : {}}>
                                 Technology
                         </span>
                         </Nav.Link>
-                        <Nav.Link onClick={SectionReq} href="">
+                        <Nav.Link onClick={SectionReq} href="" style={{margin:'8px',padding:'0'}}>
                             <span className='navkey' style={!selected.localeCompare("sports") ? { color: 'white' } : {}}>
                                 Sports
                         </span>
