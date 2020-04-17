@@ -78,7 +78,7 @@ function NewsCard(props) {
                 </Card.Text>
                 <Card.Img src={props.image} />
                 <Card.Body>
-                    <div>{props.description}</div>
+                    <div className={open?'':'truncateDescription'}>{props.description}</div>
                     <Button
                         variant={'link'}
                         style={{ float: 'right' }}
@@ -90,11 +90,6 @@ function NewsCard(props) {
                             {open ? <FaAngleUp /> : <FaAngleDown />}
                         </IconContext.Provider>
                     </Button>
-                    <Collapse in={open}>
-                        <div id='collapse-text'>
-                            Here are collapsed text;
-                    </div>
-                    </Collapse>
                 </Card.Body>
             </Card>
         </div>
