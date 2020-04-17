@@ -17,7 +17,7 @@ function NewsCard(props) {
     const [isSaved, setSaved] = useState((props.BmContent.findIndex(news => news.id === props.id) !== -1) ? true : false);
     function notify(test,title) {
         toast(test + title, {
-            position: "top-right",
+            position: "top-center",
             autoClose: 2000,
             hideProgressBar: true,
             closeOnClick: true,

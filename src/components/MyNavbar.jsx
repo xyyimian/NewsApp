@@ -81,7 +81,7 @@ function MyNavbar(props) {
     }
     return (
         <Navbar className="bg-grad" expand="lg">
-        {InitHome()}
+        {/* {InitHome()} */}
             <SearchBox searchReq={SearchReq}/>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between"> 

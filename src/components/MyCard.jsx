@@ -92,15 +92,17 @@ function BmCard(props) {
             <ToastContainer />
             <Card className='shadow p-3 mb-5 bg-white rounded' style={{margin: '2% 0'}}>
                 <Card.Title >
-                    <p className='truncateTitle' onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.changeContent, props.section) }}>{props.title}</p>
+                    <p style={{display: 'inline'}} onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.changeContent, props.section) }}>
+                        {props.title.length>42 ? props.title.substring(0,40)+'...' : props.title}
+                    </p>
                     <ShareModel title={props.title} url={props.url} />
                     <FaTrash onClick={() => {notify("Removing ",props.title); props.removeBmContent(props.id); props.onLoading(false, '/favorites'); }} />
                 </Card.Title>
                 <Card.Img className='toplineImg' variant='' src={props.image} onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.changeContent, props.section) }} />
                 <div>
-                    <div className='NewsDate'>{props.date.substring(0,10)}</div>
-                    <div className={'NewsTag '+props.section+'Tag'}>{props.section === undefined ? undefined : props.section.toUpperCase()}</div>
-                    <div className={'NewsTag '+(props.switchst ? 'guardian' : 'nytimes')+'Tag'}>{props.switchst ? 'GUARDIAN' : 'NYTIMES'}</div>
+                    <div className='NewsDate' style={{margin:'10px 0'}}>{props.date.substring(0,10)}</div>
+                    <div className={'NewsTag '+props.section+'Tag'} style={{margin:'10px 0'}}>{props.section === undefined ? undefined : props.section.toUpperCase()}</div>
+                    <div className={'NewsTag '+(props.switchst ? 'guardian' : 'nytimes')+'Tag'} style={{margin:'10px'}}>{props.switchst ? 'GUARDIAN' : 'NYTIMES'}</div>
                 </div>
             </Card>
         </div>);
