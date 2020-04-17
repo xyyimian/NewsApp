@@ -15,7 +15,9 @@ function ShareModel(props){
         maxWidth: '412px',
         width: '90%',
         height: '162px',
-        padding: '10px'
+        padding: '10px',
+        borderRadius: '4px',
+        margin: '30px auto'
       };
 
     return(
