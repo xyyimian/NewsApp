@@ -51,7 +51,7 @@ function MyCard(props) {
                                 url={props.url}
                             />
                             </Card.Title>
-                            <Card.Text className='truncateDescription'>
+                            <Card.Text className='truncateDescription' onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.changeContent, props.section) }}>
                                 {props.description}
                             </Card.Text>
                             <div>

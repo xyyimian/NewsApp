@@ -12,8 +12,8 @@ function MySpinners() {
     `;
     return (
         <div>
-            <BounceLoader css={override} color={"#123abc"} loading={loading}/>
-            <div>Loading</div>
+            <BounceLoader css={css`position: relative;left:-10px;width: 1rem;height: 1rem;display: block;margin: 250px auto 12px;`} color={"#123abc"} loading={loading} size={'2rem'} />
+            <div style={{textAlign:'center',fontWeight:'600'}}>Loading</div>
         </div>
     );
 }
