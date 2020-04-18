@@ -121,6 +121,8 @@ function MyNavbar(props) {
                 </Form>
 
                 <Form inline>
+                <Nav>
+                    <Nav.Item style={{padding:'0'}}>
                     <span margin="100px">
                         <Button variant='link' onClick={() => { onSelected("favorites"); props.onLoading(false, '/favorites'); }}>
                             <IconContext.Provider value={{ color: "white", className: "bookmark-icon" }}>
@@ -128,17 +130,25 @@ function MyNavbar(props) {
                             </IconContext.Provider>
                         </Button>
                     </span>
+                    </Nav.Item>
+                    
                     {props.path !== "/search" && props.path !== "/favorites" && props.path !== "/news" &&
-                        <div>
-                            <Navbar.Text style={{ color: '#ffffff', padding: '0 10px 0 0' }}>NYTimes</Navbar.Text>
-                            <div style={{ display: 'inline-block' }}>
-                                <div style={{ float: 'left', height: '50%', marginBottom: '-15px' }}>
+                        <Nav>
+                            <Nav.Item style={{padding:'0',display: 'inline-block'}}>
+                                <Navbar.Text style={{ color: '#ffffff', padding:'7px 2px 3px 8px' }}>NYTimes</Navbar.Text>
+                            </Nav.Item>
+                            <Nav.Item style={{padding:'0',display: 'inline-block'}}>
+                                <div style={{ float: 'left', height: '50%', margin: '7px 2px 3px 8px'}}>
                                     <Switch onColor={'#0387ee'} checked={props.switchst} onChange={handleSwitch} value={props.switchst} draggable={false} checkedIcon={false} uncheckedIcon={false} />
                                 </div>
-                            </div>
-                            <Navbar.Text style={{ color: '#ffffff', padding: '0 10px 0 8px' }}>Guardian</Navbar.Text>
-                        </div>
+                            </Nav.Item>
+                            <Nav.Item style={{padding:'0',display: 'inline-block'}}>
+                                <Navbar.Text style={{ color: '#ffffff', padding:'7px 2px 3px 8px' }}>Guardian</Navbar.Text>
+                            </Nav.Item>
+                        </Nav>
                     }
+                    
+                </Nav>
                 </Form>
             </Navbar.Collapse>
         </Navbar>

@@ -101,8 +101,8 @@ function BmCard(props) {
                 <Card.Img className='toplineImg' variant='' src={props.image} onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.changeContent, props.section) }} />
                 <div>
                     <div className='NewsDate' style={{margin:'10px 0'}}>{props.date.substring(0,10)}</div>
-                    <div className={'NewsTag '+props.section+'Tag'} style={{margin:'10px 0'}}>{props.section === undefined ? undefined : props.section.toUpperCase()}</div>
-                    <div className={'NewsTag '+(props.switchst ? 'guardian' : 'nytimes')+'Tag'} style={{margin:'10px'}}>{props.switchst ? 'GUARDIAN' : 'NYTIMES'}</div>
+                    <div className={'NewsTag '+(props.switchst ? 'guardian' : 'nytimes')+'Tag'} style={{margin:'10px 0'}}>{props.switchst ? 'GUARDIAN' : 'NYTIMES'}</div>
+                    <div className={'NewsTag '+props.section+'Tag'} style={{margin:'10px'}}>{props.section === undefined ? undefined : props.section.toUpperCase()}</div>
                 </div>
             </Card>
         </div>);
