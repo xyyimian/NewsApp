@@ -16,18 +16,19 @@ function notify(test,title) {
         });
 }
 
-function DetailReq(switchst, id, onLoading, callback, section) {
+function DetailReq(switchst, id, onLoading, section) {
     var type = switchst ? 'guardian' : 'nyt'
-    var url = 'http://127.0.0.1:5000/api?type=' + type + '&nid=' + id;
-    var xhr = new XMLHttpRequest();
-    xhr.onload = function () {
-        var jsonObj = JSON.parse(this.responseText)
-        callback({ name: "news", body: jsonObj.results, id: id, switchst: switchst, section: section });
-        onLoading(false, '/news');
-    };
-    xhr.open('GET', url, true);
-    xhr.send();
-    onLoading(true);
+    // var url = 'http://127.0.0.1:5000/api?type=' + type + '&nid=' + id;
+    // var xhr = new XMLHttpRequest();
+    // xhr.onload = function () {
+    //     var jsonObj = JSON.parse(this.responseText)
+    //     changeContent({ name: "news", body: jsonObj.results, id: id, switchst: switchst, section: section });
+    //     onLoading(false, '/news?id='+id+'&type='+type+'&section='+section);
+    // };
+    // xhr.open('GET', url, true);
+    // xhr.send();
+    // onLoading(true);
+    onLoading(true, '/news?id='+id+'&type='+type+'&section='+section);
 };
 
 
@@ -36,14 +37,14 @@ function MyCard(props) {
     return (
             <Card className='shadow p-3 mb-5 bg-white' style={{margin: '2% 1%', borderRadius: 8 }}>
                 <div className='row'>
-                    <div onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.changeContent, props.section) }}
+                    <div onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.section) }}
                     className='col-lg-3'>
                         <Card.Img className='toplineImg' variant='' src={props.image} />
                     </div>
                     <div className='col-lg-9'>
                         <Card.Body>
                             <Card.Title>
-                            <div className='ib' onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.changeContent, props.section) }}>
+                            <div className='ib' onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.section) }}>
                                 {props.title}
                             </div>
                             <ShareModel
@@ -51,7 +52,7 @@ function MyCard(props) {
                                 url={props.url}
                             />
                             </Card.Title>
-                            <Card.Text className='truncateDescription' onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.changeContent, props.section) }}>
+                            <Card.Text className='truncateDescription' onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.section) }}>
                                 {props.description}
                             </Card.Text>
                             <div>
@@ -67,7 +68,7 @@ function MyCard(props) {
 
 function SchCard(props) {
     return (
-        <a onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.changeContent) }}>
+        <a onClick={() => { DetailReq(props.switchst, props.id, props.onLoading) }}>
             <div className='col-lg-3' style={{ display: 'inline-block' }}>
                 <Card className='shadow p-3 mb-5 bg-white rounded'>
                     <Card.Title>
@@ -92,13 +93,13 @@ function BmCard(props) {
             <ToastContainer />
             <Card className='shadow p-3 mb-5 bg-white rounded' style={{margin: '2% 0'}}>
                 <Card.Title >
-                    <p style={{display: 'inline'}} onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.changeContent, props.section) }}>
+                    <p style={{display: 'inline'}} onClick={() => { DetailReq(props.switchst, props.id, props.onLoading,props.section) }}>
                         {props.title.length>42 ? props.title.substring(0,40)+'...' : props.title}
                     </p>
                     <ShareModel title={props.title} url={props.url} />
                     <FaTrash onClick={() => {notify("Removing ",props.title); props.removeBmContent(props.id); props.onLoading(false, '/favorites'); }} />
                 </Card.Title>
-                <Card.Img className='toplineImg' variant='' src={props.image} onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.changeContent, props.section) }} />
+                <Card.Img className='toplineImg' variant='' src={props.image} onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.section) }} />
                 <div>
                     <div className='NewsDate' style={{margin:'10px 0'}}>{props.date.substring(0,10)}</div>
                     <div className={'NewsTag '+(props.switchst ? 'guardian' : 'nytimes')+'Tag'} style={{margin:'10px 0'}}>{props.switchst ? 'GUARDIAN' : 'NYTIMES'}</div>

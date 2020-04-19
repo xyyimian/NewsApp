@@ -11,7 +11,7 @@ import {
     Route
 } from "react-router-dom";
 import MyNavbar from "./MyNavbar";
-import MySpinners from "./MySpinners";
+
 
 
 function App(props) {
@@ -72,31 +72,28 @@ function App(props) {
     if(newRoute !== undefined) setRedirect(newRoute);
   }
 
-  
-
     return (
       <Router>
       {renderRedirect()}
       <div>
         <MyNavbar switchst={switchst} onSwitch={handleSwitch} content={content} changeContent={changeContent} onLoading={onLoading} path={path}/> 
-        {loading ? <MySpinners /> :
+        
         <Switch>
             <Route path='/news'>
               <News content={content} BmContent={BmContent} addBmContent={addBmContent} removeBmContent={removeBmContent}/>
             </Route>
             <Route path='/search'>
-              <Search switchst={switchst} content={content} changeContent={changeContent} onLoading={onLoading}/>
+              <Search switchst={switchst} loading={loading} content={content} changeContent={changeContent} onLoading={onLoading}/>
             </Route>
             <Route path="/favorites">
-              <Favorites switchst={switchst} content={content} changeContent={changeContent} BmContent={BmContent} 
+              <Favorites switchst={switchst} loading={loading} content={content} changeContent={changeContent} BmContent={BmContent} 
                         removeBmContent={removeBmContent} onLoading={onLoading}/>
             </Route>
             <Route path="/">
-              <Home switchst={switchst} content={content} changeContent={changeContent} onLoading={onLoading}/>
+              <Home switchst={switchst} loading={loading} content={content} changeContent={changeContent} onLoading={onLoading}/>
             </Route>
             
         </Switch>
-        }
         </div>
       </Router>
     );
