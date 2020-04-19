@@ -18,7 +18,6 @@ function News(props) {
         xhr.onload = function () {
             var jsonObj = JSON.parse(this.responseText)
             changeContent({ body: jsonObj.results, id: id, switchst: switchst, section: section });
-            console.log(jsonObj.results);
         };
         xhr.open('GET', url, true);
         xhr.send();
@@ -29,7 +28,6 @@ function News(props) {
     }
 
     let query = useQuery();
-    console.log(query.get("id")+query.get("type")+query.get("section"));
     if(content.body[0] == undefined || content.id!=query.get("id"))
         DetailReq(query.get("id"),query.get("type"),query.get("section"));
     return (

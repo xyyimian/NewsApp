@@ -80,7 +80,7 @@ function App(props) {
         
         <Switch>
             <Route path='/news'>
-              <News content={content} BmContent={BmContent} addBmContent={addBmContent} removeBmContent={removeBmContent}/>
+              <News BmContent={BmContent} addBmContent={addBmContent} removeBmContent={removeBmContent}/>
             </Route>
             <Route path='/search'>
               <Search switchst={switchst} loading={loading} content={content} changeContent={changeContent} onLoading={onLoading}/>

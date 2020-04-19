@@ -8,7 +8,7 @@ import Select from "react-select"
 import SearchBox from "./SearchBox"
 
 function MyNavbar(props) {
-    const [selected, setSelected] = useState('home');
+    const [selected, setSelected] = useState('');
     function onSelected(newSelected) {
         setSelected(newSelected);
     }
@@ -18,16 +18,15 @@ function MyNavbar(props) {
         props.onSwitch();
     }
     /******************************/
-    function RenderSection(xhr, cat) {
-        var jsonObj = JSON.parse(xhr.responseText)
-        props.changeContent({ name: cat, body: jsonObj.results })
-        props.onLoading(false, '/');
-    }
     function tcSectionReq(type, cat) {
         onSelected(cat);
         var url = 'http://127.0.0.1:5000/api?type=' + type + '&cat=' + cat;
         var xhr = new XMLHttpRequest();
-        xhr.onload = function () { RenderSection(this, cat) };
+        xhr.onload = function () { 
+            var jsonObj = JSON.parse(xhr.responseText);
+            props.changeContent({ name: cat, body: jsonObj.results });
+            props.onLoading(false, '/');
+        };
         xhr.open('GET', url, true);
         xhr.send();
         props.onLoading(true);
@@ -72,47 +71,46 @@ function MyNavbar(props) {
 
 
     /********** Init ************/
-    const [init, setInit] = useState(true);
     function InitHome() {
-        if (init) {
-            setInit(false);
+        if (selected==='') {
+            onSelected('home');
             tcSectionReq('nyt', 'home');
         }
     }
     return (
         <Navbar className="bg-grad" expand="lg">
-        {/* {InitHome()} */}
+        {InitHome()}
             <SearchBox searchReq={SearchReq}/>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between"> 
                 <Form inline>
                     <Nav className="mr-auto">
-                        <Nav.Link onClick={SectionReq} href="" style={{margin:'8px',padding:'0'}}>
+                        <Nav.Link onClick={SectionReq} href="#?section=home" style={{margin:'8px',padding:'0'}}>
                             <span className='navkey' style={!selected.localeCompare("home") ? { color: 'white' } : {}} >
                                 Home
                             </span>
                         </Nav.Link>
-                        <Nav.Link onClick={SectionReq} href="" style={{margin:'8px',padding:'0'}}>
+                        <Nav.Link onClick={SectionReq} href="#?section=world" style={{margin:'8px',padding:'0'}}>
                             <span className='navkey' style={!selected.localeCompare("world") ? { color: 'white' } : {}}>
                                 World
                             </span>
                         </Nav.Link>
-                        <Nav.Link onClick={SectionReq} href="" style={{margin:'8px',padding:'0'}}>
+                        <Nav.Link onClick={SectionReq} href="#?section=politics" style={{margin:'8px',padding:'0'}}>
                             <span className='navkey' style={!selected.localeCompare("politics") ? { color: 'white' } : {}}>
                                 Politics
                             </span>
                         </Nav.Link>
-                        <Nav.Link onClick={SectionReq} href="" style={{margin:'8px',padding:'0'}}>
+                        <Nav.Link onClick={SectionReq} href="#?section=business" style={{margin:'8px',padding:'0'}}>
                             <span className='navkey' style={!selected.localeCompare("business") ? { color: 'white' } : {}}>
                                 Business
                         </span>
                         </Nav.Link>
-                        <Nav.Link onClick={SectionReq} href="" style={{margin:'8px',padding:'0'}}>
+                        <Nav.Link onClick={SectionReq} href="#?section=technology" style={{margin:'8px',padding:'0'}}>
                             <span className='navkey' style={!selected.localeCompare("technology") ? { color: 'white' } : {}}>
                                 Technology
                         </span>
                         </Nav.Link>
-                        <Nav.Link onClick={SectionReq} href="" style={{margin:'8px',padding:'0'}}>
+                        <Nav.Link onClick={SectionReq} href="#?section=sports" style={{margin:'8px',padding:'0'}}>
                             <span className='navkey' style={!selected.localeCompare("sports") ? { color: 'white' } : {}}>
                                 Sports
                         </span>
@@ -132,7 +130,7 @@ function MyNavbar(props) {
                     </span>
                     </Nav.Item>
                     
-                    {props.path !== "/search" && props.path !== "/favorites" && props.path !== "/news" &&
+                    {props.path !== "/search" && props.path !== "/favorites" && props.path.substring(0,5) !== "/news" &&
                         <Nav>
                             <Nav.Item style={{padding:'0',display: 'inline-block'}}>
                                 <Navbar.Text style={{ color: '#ffffff', padding:'7px 2px 3px 8px' }}>NYTimes</Navbar.Text>

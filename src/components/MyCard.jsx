@@ -17,21 +17,9 @@ function notify(test,title) {
 }
 
 function DetailReq(switchst, id, onLoading, section) {
-    var type = switchst ? 'guardian' : 'nyt'
-    // var url = 'http://127.0.0.1:5000/api?type=' + type + '&nid=' + id;
-    // var xhr = new XMLHttpRequest();
-    // xhr.onload = function () {
-    //     var jsonObj = JSON.parse(this.responseText)
-    //     changeContent({ name: "news", body: jsonObj.results, id: id, switchst: switchst, section: section });
-    //     onLoading(false, '/news?id='+id+'&type='+type+'&section='+section);
-    // };
-    // xhr.open('GET', url, true);
-    // xhr.send();
-    // onLoading(true);
+    var type = switchst ? 'guardian' : 'nyt';
     onLoading(true, '/news?id='+id+'&type='+type+'&section='+section);
 };
-
-
 
 function MyCard(props) {
     return (
