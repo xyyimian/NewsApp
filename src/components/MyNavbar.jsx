@@ -6,6 +6,7 @@ import { FaRegBookmark, FaBookmark } from 'react-icons/fa'
 import { Button, Dropdown } from "react-bootstrap"
 import Select from "react-select"
 import SearchBox from "./SearchBox"
+import {useLocation} from "react-router-dom";
 
 function MyNavbar(props) {
     const [selected, setSelected] = useState('');
@@ -25,11 +26,11 @@ function MyNavbar(props) {
         xhr.onload = function () { 
             var jsonObj = JSON.parse(xhr.responseText);
             props.changeContent({ name: cat, body: jsonObj.results });
-            props.onLoading(false, '/');
+            props.onLoading(false);
         };
         xhr.open('GET', url, true);
         xhr.send();
-        props.onLoading(true);
+        props.onLoading(true, '/?section='+cat+'&type='+type);
     }
     function SectionReq(event) {
         if (props.switchst) {
@@ -40,7 +41,7 @@ function MyNavbar(props) {
         var cat = event.target.innerHTML.toLowerCase();
         tcSectionReq(type, cat);
     }
-    /******************************/
+    /*********bing search**********/
     function RenderSearch(xhr) {
         var jsonObj = JSON.parse(xhr.responseText)
         props.changeContent({ name: 'search', body: jsonObj.results })
@@ -63,55 +64,58 @@ function MyNavbar(props) {
         xhr.send();
         props.onLoading(true);
     }
-    /******************************/
-    //bing search
-
-    /************dropdown***********/
-
-
 
     /********** Init ************/
-    function InitHome() {
-        if (selected==='') {
-            onSelected('home');
-            tcSectionReq('nyt', 'home');
+    function useQuery() {
+        return new URLSearchParams(useLocation().search);
+    }
+
+    let usequery = useQuery();
+    console.log(usequery.get("section"));
+    if ((selected!=null&&usequery.get("section")!=null&&selected.localeCompare(usequery.get("section")))||
+        (!'guardian'.localeCompare(usequery.get("type"))&&!props.switchst)||
+        (!'nyt'.localeCompare(usequery.get("type"))&&props.switchst)){
+        if((!'guardian'.localeCompare(usequery.get("type"))&&!props.switchst)||
+        (!'nyt'.localeCompare(usequery.get("type"))&&props.switchst)){
+            props.onSwitch();
         }
+        onSelected(usequery.get("section"));
+        tcSectionReq(usequery.get("type"), usequery.get("section"));
     }
     return (
         <Navbar className="bg-grad" expand="lg">
-        {InitHome()}
             <SearchBox searchReq={SearchReq}/>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between"> 
                 <Form inline>
                     <Nav className="mr-auto">
-                        <Nav.Link onClick={SectionReq} href="#?section=home" style={{margin:'8px',padding:'0'}}>
-                            <span className='navkey' style={!selected.localeCompare("home") ? { color: 'white' } : {}} >
+                        <Nav.Link onClick={SectionReq} href={"?section=home&type="+props.switchst?'guardian':'nyt'} style={{margin:'8px',padding:'0'}}>
+                            <span className='navkey' style={selected&&(!selected.localeCompare("home")) ? { color: 'white' } : {}} >
                                 Home
                             </span>
                         </Nav.Link>
-                        <Nav.Link onClick={SectionReq} href="#?section=world" style={{margin:'8px',padding:'0'}}>
-                            <span className='navkey' style={!selected.localeCompare("world") ? { color: 'white' } : {}}>
+                        <Nav.Link onClick={SectionReq} href={"?section=world&type="+props.switchst?'guardian':'nyt'} style={{margin:'8px',padding:'0'}}>
+                            <span className='navkey' style={selected&&(!selected.localeCompare("world")) ? { color: 'white' } : {}}>
                                 World
                             </span>
                         </Nav.Link>
-                        <Nav.Link onClick={SectionReq} href="#?section=politics" style={{margin:'8px',padding:'0'}}>
-                            <span className='navkey' style={!selected.localeCompare("politics") ? { color: 'white' } : {}}>
+                        <Nav.Link onClick={SectionReq} href={"?section=politics&type="+props.switchst?'guardian':'nyt'} style={{margin:'8px',padding:'0'}}>
+                            <span className='navkey' style={selected&&(!selected.localeCompare("politics")) ? { color: 'white' } : {}}>
                                 Politics
                             </span>
                         </Nav.Link>
-                        <Nav.Link onClick={SectionReq} href="#?section=business" style={{margin:'8px',padding:'0'}}>
-                            <span className='navkey' style={!selected.localeCompare("business") ? { color: 'white' } : {}}>
+                        <Nav.Link onClick={SectionReq} href={"?section=business&type="+props.switchst?'guardian':'nyt'} style={{margin:'8px',padding:'0'}}>
+                            <span className='navkey' style={selected&&(!selected.localeCompare("business")) ? { color: 'white' } : {}}>
                                 Business
                         </span>
                         </Nav.Link>
-                        <Nav.Link onClick={SectionReq} href="#?section=technology" style={{margin:'8px',padding:'0'}}>
-                            <span className='navkey' style={!selected.localeCompare("technology") ? { color: 'white' } : {}}>
+                        <Nav.Link onClick={SectionReq} href={"?section=technology&type="+props.switchst?'guardian':'nyt'} style={{margin:'8px',padding:'0'}}>
+                            <span className='navkey' style={selected&&(!selected.localeCompare("technology")) ? { color: 'white' } : {}}>
                                 Technology
                         </span>
                         </Nav.Link>
-                        <Nav.Link onClick={SectionReq} href="#?section=sports" style={{margin:'8px',padding:'0'}}>
-                            <span className='navkey' style={!selected.localeCompare("sports") ? { color: 'white' } : {}}>
+                        <Nav.Link onClick={SectionReq} href={"?section=sports&type="+props.switchst?'guardian':'nyt'} style={{margin:'8px',padding:'0'}}>
+                            <span className='navkey' style={selected&&(!selected.localeCompare("sports")) ? { color: 'white' } : {}}>
                                 Sports
                         </span>
                         </Nav.Link>
