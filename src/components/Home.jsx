@@ -1,11 +1,12 @@
 import React from "react";
 import MyCard from "./MyCard";
-
+import MySpinners from "./MySpinners";
 function Home(props) {
     const guardianLogo = 'https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png'
     const nytLogo = 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Nytimes_hq.jpg'
 
     return (
+      props.loading ? <MySpinners /> :
       <div>
         {props.content.body.map((info, index) => {
             return (

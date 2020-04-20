@@ -56,22 +56,23 @@ function MyCard(props) {
 
 function SchCard(props) {
     return (
-        <a onClick={() => { DetailReq(props.switchst, props.id, props.onLoading) }}>
             <div className='col-lg-3' style={{ display: 'inline-block' }}>
                 <Card className='shadow p-3 mb-5 bg-white rounded'>
                     <Card.Title>
-                    <div className='truncateTitle'>{props.title}</div>
+                    <p style={{display: 'inline'}} onClick={() => { DetailReq(props.switchst, props.id, props.onLoading,props.section) }}>
+                        {props.title.length>42 ? props.title.substring(0,40)+'...' : props.title}
+                    </p>
                      <ShareModel title={props.title} url={props.url} />
                     </Card.Title>
-                    <Card.Img className='toplineImg' variant=''
+                    <Card.Img onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.section) }}
+                        className='toplineImg' variant=''
                         src={props.image} />
                     <div>
                         <div className='NewsDate'>{props.date.substring(0,10)}</div>
-                        <div className='NewsTag'>{props.section === undefined ? undefined : props.section.toUpperCase()}</div>
+                        <div className={'NewsTag '+props.section+'Tag'}>{props.section === undefined ? undefined : props.section.toUpperCase()}</div>
                     </div>
                 </Card>
             </div>
-        </a>
     );
 }
 
@@ -89,9 +90,9 @@ function BmCard(props) {
                 </Card.Title>
                 <Card.Img className='toplineImg' variant='' src={props.image} onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.section) }} />
                 <div>
-                    <div className='NewsDate' style={{margin:'10px 0'}}>{props.date.substring(0,10)}</div>
-                    <div className={'NewsTag '+(props.switchst ? 'guardian' : 'nytimes')+'Tag'} style={{margin:'10px 0'}}>{props.switchst ? 'GUARDIAN' : 'NYTIMES'}</div>
-                    <div className={'NewsTag '+props.section+'Tag'} style={{margin:'10px'}}>{props.section === undefined ? undefined : props.section.toUpperCase()}</div>
+                    <div className='NewsDate'>{props.date.substring(0,10)}</div>
+                    <div className={'NewsTag '+(props.switchst ? 'guardian' : 'nytimes')+'Tag'} >{props.switchst ? 'GUARDIAN' : 'NYTIMES'}</div>
+                    <div className={'NewsTag '+props.section+'Tag'} >{props.section === undefined ? undefined : props.section.toUpperCase()}</div>
                 </div>
             </Card>
         </div>);
