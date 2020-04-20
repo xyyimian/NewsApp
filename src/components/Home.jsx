@@ -4,7 +4,10 @@ import MyCard from "./MyCard";
 function Home(props) {
     const guardianLogo = 'https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png'
     const nytLogo = 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Nytimes_hq.jpg'
-
+    
+    if(props.content.body[0]==undefined){
+      props.onLoading(false, '/?section=home&type=nyt');
+    }
     return (
       <div>
         {props.content.body.map((info, index) => {
