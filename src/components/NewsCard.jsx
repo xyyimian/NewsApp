@@ -51,10 +51,10 @@ function NewsCard(props) {
         <div>
             <ToastContainer />
             <ReactTooltip />
-            <Card className='shadow p-3 mb-5 bg-white rounded news-card'>
-                <Card.Title>{props.title}</Card.Title>
+            <Card className='shadow p-3 m-3 bg-white rounded news-card'>
+                <Card.Title className='italic'>{props.title}</Card.Title>
                 <Card.Text>
-                    <span>{props.date.substring(0,10)}</span>
+                    <span style={{paddingLeft:'10px'}}>{props.date.substring(0,10)}</span>
                     <span style={{ position:'absolute', right:'120px' }}>
                         <FacebookShareButton data-tip='Facebook' url={props.url} quote={hashtag} children="">
                             <FacebookIcon size={25} round={true} />

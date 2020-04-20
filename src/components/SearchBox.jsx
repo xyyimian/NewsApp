@@ -57,7 +57,7 @@ function SearchBox(props){
             defaultOptions={[ { label: 'No Match', value: 1 }]}
             onChange={(e) => {props.searchReq(e)}}
             onInputChange={handleInputChange}
-            placeholder={'Enter Keyword..'} 
+            placeholder={'Enter keyword ..'} 
             loadOptions={loadOptions}
         />
     );

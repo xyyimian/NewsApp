@@ -23,16 +23,16 @@ function DetailReq(switchst, id, onLoading, section) {
 
 function MyCard(props) {
     return (
-            <Card className='shadow p-3 mb-5 bg-white' style={{margin: '2% 1%', borderRadius: 8 }}>
+            <Card className='shadow p-4 bg-white' style={{margin: '1.5% 1% 3%', borderRadius: 8 }}>
                 <div className='row'>
                     <div onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.section) }}
                     className='col-lg-3'>
                         <Card.Img className='toplineImg' variant='' src={props.image} />
                     </div>
                     <div className='col-lg-9'>
-                        <Card.Body>
+                        <Card.Body style={{padding:"0"}}>
                             <Card.Title>
-                            <div className='ib' onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.section) }}>
+                            <div className='ib italic' onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.section) }}>
                                 {props.title}
                             </div>
                             <ShareModel
