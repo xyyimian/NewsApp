@@ -20,7 +20,7 @@
 }
 
 .toplineImg {
-  height: 200px;
+  height: 180px;
 }
 
 .articleImg {
@@ -30,6 +30,7 @@
 .NewsDate {
   display: inline-block;
   font-style: italic;
+  margin:10px 0;
 }
 .NewsTag {
   /* margin-left: 70%; */
@@ -40,6 +41,7 @@
   display: inline-block;
   background-color: #6e757c;
   border-radius: 4px;
+  margin:10px 0 10px 5px;
 }
 
 .worldTag{
@@ -80,6 +82,15 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.truncateDescription2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-bottom: 10px;
 }
 
 .truncateTitle{
@@ -96,6 +107,12 @@
 .ib {
   display: inline-block;
 }
+
+.il {
+  display: inline;
+}
+
+.italic {font-style:italic}
 
 .unstyled-but {
   border: none;
