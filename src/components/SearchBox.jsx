@@ -6,6 +6,7 @@ function SearchBox(props){
     const bing_key = '4d04d04e40264f9a8ea2c88fa1fbedee'
 
     function bingAutosuggest(query){
+        console.log('query'+query)
         var endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/Suggestions";
         var request = new XMLHttpRequest();
         try {
@@ -34,13 +35,13 @@ function SearchBox(props){
     function renderSearchResults(results) {
         // setSchOpt(results.suggestionGroups[0].searchSuggestions.map((e, index) => {return {label: e.displayText, value: index}} ))
         schOptions = results.suggestionGroups[0].searchSuggestions.map((e, index) => {return {label: e.displayText, value: index}} )
+        
     }
-    // const [searchOptions, setSchOpt] = useState([])
+    // const [searchOptions, setSchOpt] = useState([ { label: 'No Match', value: 1 }])
     var schOptions = []
-    /***************** */
     
-    const [inputValue, setInputValue] = useState("");
-    const handleInputChange = (newValue) => { setInputValue(newValue)};
+    
+
     
     
     
@@ -52,14 +53,15 @@ function SearchBox(props){
             bingAutosuggest(inputValue);
             setTimeout( () => {return callback(schOptions)}, 500);
         }
-    };
+    };    
 
 
     return (
         <AsyncSelect 
+            // inputValue={props.inputValue}
             defaultOptions={[ { label: 'No Match', value: 1 }]}
             onChange={(e) => {props.searchReq(e)}}
-            onInputChange={_.debounce(handleInputChange, 500)}
+            onInputChange={_.debounce(props.handleInputChange, 500)}
             placeholder={'Enter Keyword..'}
             loadOptions={_.debounce(loadOptions, 500)}
         />

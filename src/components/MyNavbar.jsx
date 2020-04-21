@@ -7,6 +7,8 @@ import { Button, Dropdown } from "react-bootstrap"
 import Select from "react-select"
 import SearchBox from "./SearchBox"
 
+
+
 function MyNavbar(props) {
     const [selected, setSelected] = useState('');
     function onSelected(newSelected) {
@@ -22,7 +24,7 @@ function MyNavbar(props) {
         onSelected(cat);
         var url = 'http://127.0.0.1:5000/api?type=' + type + '&cat=' + cat;
         var xhr = new XMLHttpRequest();
-        xhr.onload = function () { 
+        xhr.onload = function () {
             var jsonObj = JSON.parse(xhr.responseText);
             props.changeContent({ name: cat, body: jsonObj.results });
             props.onLoading(false);
@@ -30,6 +32,7 @@ function MyNavbar(props) {
         xhr.open('GET', url, true);
         xhr.send();
         props.onLoading(true, '/');
+        
     }
     function SectionReq(event) {
         if (props.switchst) {
@@ -63,10 +66,10 @@ function MyNavbar(props) {
         xhr.send();
         props.onLoading(true, '/search');
     }
-    /******************************/
-    //bing search
+    /******** bing search **********/
 
-    /************dropdown***********/
+    const [inputValue, setInputValue] = useState();
+    const handleInputChange = (newValue) => {setInputValue(newValue); return inputValue};
 
 
 
@@ -80,7 +83,7 @@ function MyNavbar(props) {
     return (
         <Navbar className="bg-grad" expand="lg">
         {InitHome()}
-            <SearchBox searchReq={SearchReq}/>
+            <SearchBox searchReq={SearchReq} inputValue={inputValue} handleInputChange={handleInputChange}/>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between"> 
                 <Form inline>
