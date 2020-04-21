@@ -22,7 +22,7 @@ function MyNavbar(props) {
     /******************************/
     function tcSectionReq(type, cat) {
         onSelected(cat);
-        var url = 'http://127.0.0.1:5000/api?type=' + type + '&cat=' + cat;
+        var url = '/api?type=' + type + '&cat=' + cat;
         var xhr = new XMLHttpRequest();
         xhr.onload = function () {
             var jsonObj = JSON.parse(xhr.responseText);
@@ -58,7 +58,7 @@ function MyNavbar(props) {
             var type = 'nyt'
         }
         onSelected("query");
-        var url = 'http://127.0.0.1:5000/api?type=' + type + '&query=' + query;
+        var url = '/api?type=' + type + '&query=' + query;
         var xhr = new XMLHttpRequest();
         xhr.onload = function () { RenderSearch(this); };
         xhr.onerror = function () { console.log('error happens') };

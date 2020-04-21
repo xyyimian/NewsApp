@@ -58,11 +58,11 @@ function SearchBox(props){
 
     return (
         <AsyncSelect 
-            // inputValue={props.inputValue}
+            value={props.inputValue}
             defaultOptions={[ { label: 'No Match', value: 1 }]}
             onChange={(e) => {props.searchReq(e)}}
             onInputChange={_.debounce(props.handleInputChange, 500)}
-            placeholder={'Enter Keyword..'}
+            placeholder={'Enter keyword ..'}
             loadOptions={_.debounce(loadOptions, 500)}
         />
     );

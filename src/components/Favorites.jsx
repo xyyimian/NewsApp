@@ -5,10 +5,8 @@ function Favorites(props) {
     return (
       <div>
       <div className='indicator'>Favorites</div>
-        {props.BmContent.length === 0 ?
-          <p>You have no saved articles</p>
-          :
-          props.BmContent.map((info, index) => {
+          <p className='no-save-ind'>You have no saved articles</p>
+          {props.BmContent.map((info, index) => {
             return (
               <BmCard
                 onLoading={props.onLoading}

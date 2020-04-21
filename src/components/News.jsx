@@ -13,7 +13,7 @@ function News(props) {
 
     function DetailReq(id, type, section) {
         var switchst = type=='guardian'? true : false;
-        var url = 'http://127.0.0.1:5000/api?type=' + type + '&nid=' + id;
+        var url = '/api?type=' + type + '&nid=' + id;
         var xhr = new XMLHttpRequest();
         xhr.onload = function () {
             var jsonObj = JSON.parse(this.responseText)
