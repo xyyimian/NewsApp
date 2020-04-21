@@ -2,7 +2,6 @@ import React from "react";
 import {BmCard} from "./MyCard";
 
 function Favorites(props) {
-    console.log(props.BmContent);
     return (
       <div>
       <div className='indicator'>Favorites</div>

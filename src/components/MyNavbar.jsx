@@ -25,11 +25,11 @@ function MyNavbar(props) {
         xhr.onload = function () { 
             var jsonObj = JSON.parse(xhr.responseText);
             props.changeContent({ name: cat, body: jsonObj.results });
-            props.onLoading(false, '/');
+            props.onLoading(false);
         };
         xhr.open('GET', url, true);
         xhr.send();
-        props.onLoading(true);
+        props.onLoading(true, '/');
     }
     function SectionReq(event) {
         if (props.switchst) {
@@ -44,7 +44,7 @@ function MyNavbar(props) {
     function RenderSearch(xhr) {
         var jsonObj = JSON.parse(xhr.responseText)
         props.changeContent({ name: 'search', body: jsonObj.results })
-        props.onLoading(false, '/search');
+        props.onLoading(false);
     }
 
     function SearchReq(q) {
@@ -61,7 +61,7 @@ function MyNavbar(props) {
         xhr.onerror = function () { console.log('error happens') };
         xhr.open('GET', url, true);
         xhr.send();
-        props.onLoading(true);
+        props.onLoading(true, '/search');
     }
     /******************************/
     //bing search

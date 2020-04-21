@@ -1,7 +1,9 @@
 import React from "react"
 import { SchCard } from "./MyCard";
+import MySpinners from "./MySpinners";
 function Search(props) {
     return (
+      props.loading ? <MySpinners /> :
         <div>
             <div className='indicator'>Results</div>
             <div>

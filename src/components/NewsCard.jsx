@@ -11,6 +11,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ReactTooltip from "react-tooltip";
 
+const guardianLogo = 'https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png'
+const nytLogo = 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Nytimes_hq.jpg'
+
 function NewsCard(props) {
     const hashtag = "CSCI_571_NewsApp"
     const [open, setOpen] = useState(false);
@@ -47,6 +50,8 @@ function NewsCard(props) {
             return !prev;
         });
     }
+
+    var stringArray = props.description.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|");
     return (
         <div>
             <ToastContainer />
@@ -76,9 +81,12 @@ function NewsCard(props) {
                     </span>
 
                 </Card.Text>
-                <Card.Img src={props.image} />
+                <Card.Img src={props.image !== undefined ? props.image : (props.switchst ? guardianLogo : nytLogo)} />
                 <Card.Body>
-                    <div className={open?'':'truncateDescription'}>{props.description}</div>
+                    <div>
+                        {open?props.description:stringArray.slice(0,4).join(' ')}
+                    </div>
+                    {stringArray.length >4 &&
                     <Button
                         variant={'link'}
                         style={{ float: 'right' }}
@@ -90,6 +98,7 @@ function NewsCard(props) {
                             {open ? <FaAngleUp /> : <FaAngleDown />}
                         </IconContext.Provider>
                     </Button>
+                    }
                 </Card.Body>
             </Card>
         </div>

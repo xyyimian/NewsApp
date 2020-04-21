@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import AsyncSelect from 'react-select/lib/Async';
-import { defaultProps } from "react-select/lib/Select";
-
+import _ from "lodash"
 function SearchBox(props){
 
     const bing_key = '4d04d04e40264f9a8ea2c88fa1fbedee'
@@ -19,6 +18,7 @@ function SearchBox(props){
         request.addEventListener('load', function() {
             if(this.status == 200){
                 renderSearchResults(JSON.parse(this.responseText));
+
             }
             else{
                 console.log(this.status)
@@ -27,17 +27,22 @@ function SearchBox(props){
         })
         request.send();
         return false;
-    }    
-    function renderSearchResults(results) {
-        
-        setSchOpt(results.suggestionGroups[0].searchSuggestions.map((e, index) => {return {label: e.displayText, value: index}} ))
     }
-    const [searchOptions, setSchOpt] = useState()
+    
+
+
+    function renderSearchResults(results) {
+        // setSchOpt(results.suggestionGroups[0].searchSuggestions.map((e, index) => {return {label: e.displayText, value: index}} ))
+        schOptions = results.suggestionGroups[0].searchSuggestions.map((e, index) => {return {label: e.displayText, value: index}} )
+    }
+    // const [searchOptions, setSchOpt] = useState([])
+    var schOptions = []
     /***************** */
     
     const [inputValue, setInputValue] = useState("");
+    const handleInputChange = (newValue) => { setInputValue(newValue)};
     
-    const handleInputChange = (newValue) => {setInputValue(newValue)};
+    
     
     const loadOptions = (inputValue, callback) => {
         if(!inputValue){
@@ -45,20 +50,18 @@ function SearchBox(props){
         }
         else{
             bingAutosuggest(inputValue);
-            setTimeout(() => {callback(searchOptions)}, 1000);
+            setTimeout( () => {return callback(schOptions)}, 500);
         }
     };
 
 
     return (
         <AsyncSelect 
-            cacheOptions
-            // value={inputValue}
             defaultOptions={[ { label: 'No Match', value: 1 }]}
             onChange={(e) => {props.searchReq(e)}}
-            onInputChange={handleInputChange}
-            placeholder={'Enter keyword ..'} 
-            loadOptions={loadOptions}
+            onInputChange={_.debounce(handleInputChange, 500)}
+            placeholder={'Enter Keyword..'}
+            loadOptions={_.debounce(loadOptions, 500)}
         />
     );
 }

@@ -2,8 +2,6 @@ import React from "react";
 import MyCard from "./MyCard";
 import MySpinners from "./MySpinners";
 function Home(props) {
-    const guardianLogo = 'https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png'
-    const nytLogo = 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Nytimes_hq.jpg'
 
     return (
       props.loading ? <MySpinners /> :
@@ -20,8 +18,7 @@ function Home(props) {
                 title={info.title}
                 description={info.description}
                 section={info.section}
-                image={info.image !== undefined ? info.image :
-                  (props.switchst ? guardianLogo : nytLogo)}
+                image={info.image}
                 date={info.date}
               />
               

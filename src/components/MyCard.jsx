@@ -5,6 +5,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ShareModel from "./ShareModel"
 
+const guardianLogo = 'https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png'
+const nytLogo = 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Nytimes_hq.jpg'
+
 function notify(test,title) {
     toast(test + title, {
         position: "top-right",
@@ -22,17 +25,19 @@ function DetailReq(switchst, id, onLoading, section) {
 };
 
 function MyCard(props) {
+    
     return (
             <Card className='shadow p-4 bg-white' style={{margin: '1.5% 1% 3%', borderRadius: 8 }}>
                 <div className='row'>
                     <div onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.section) }}
                     className='col-lg-3'>
-                        <Card.Img className='toplineImg' variant='' src={props.image} />
+                        <Card.Img className='toplineImg' variant='' src={props.image !== undefined ? props.image :
+                  (props.switchst ? guardianLogo : nytLogo)} />
                     </div>
                     <div className='col-lg-9'>
                         <Card.Body style={{padding:"0"}}>
                             <Card.Title>
-                            <div className='ib italic' onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.section) }}>
+                            <div className='il italic' onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.section) }}>
                                 {props.title}
                             </div>
                             <ShareModel
@@ -66,7 +71,7 @@ function SchCard(props) {
                     </Card.Title>
                     <Card.Img onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.section) }}
                         className='toplineImg' variant=''
-                        src={props.image} />
+                        src={props.image !== undefined ? props.image : (props.switchst ? guardianLogo : nytLogo)} />
                     <div>
                         <div className='NewsDate'>{props.date.substring(0,10)}</div>
                         <div className={'NewsTag '+props.section+'Tag'}>{props.section === undefined ? undefined : props.section.toUpperCase()}</div>
@@ -88,7 +93,7 @@ function BmCard(props) {
                     <ShareModel title={props.title} url={props.url} />
                     <FaTrash onClick={() => {notify("Removing ",props.title); props.removeBmContent(props.id); props.onLoading(false, '/favorites'); }} />
                 </Card.Title>
-                <Card.Img className='toplineImg' variant='' src={props.image} onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.section) }} />
+                <Card.Img className='toplineImg' variant='' src={props.image !== undefined ? props.image : (props.switchst ? guardianLogo : nytLogo)} onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.section) }} />
                 <div>
                     <div className='NewsDate'>{props.date.substring(0,10)}</div>
                     <div className={'NewsTag '+(props.switchst ? 'guardian' : 'nytimes')+'Tag'} >{props.switchst ? 'GUARDIAN' : 'NYTIMES'}</div>
