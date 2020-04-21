@@ -6,7 +6,7 @@ import { FaRegBookmark, FaBookmark } from 'react-icons/fa'
 import { Button, Dropdown } from "react-bootstrap"
 import Select from "react-select"
 import SearchBox from "./SearchBox"
-
+import ReactTooltip from "react-tooltip";
 
 
 function MyNavbar(props) {
@@ -82,6 +82,7 @@ function MyNavbar(props) {
     }
     return (
         <Navbar className="bg-grad" expand="lg">
+        <ReactTooltip />
         {InitHome()}
             <SearchBox searchReq={SearchReq} inputValue={inputValue} handleInputChange={handleInputChange}/>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -125,7 +126,7 @@ function MyNavbar(props) {
                 <Nav>
                     <Nav.Item style={{padding:'0'}}>
                     <span margin="100px">
-                        <Button variant='link' onClick={() => { onSelected("favorites"); props.onLoading(false, '/favorites'); }}>
+                        <Button data-tip="Bookmark" variant='link' onClick={() => { onSelected("favorites"); props.onLoading(false, '/favorites'); }}>
                             <IconContext.Provider value={{ color: "white", className: "bookmark-icon" }}>
                                 {props.path === "/favorites" ? <FaBookmark /> : <FaRegBookmark />}
                             </IconContext.Provider>
