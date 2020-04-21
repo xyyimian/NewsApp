@@ -5,6 +5,7 @@ import {
     FacebookShareButton, TwitterShareButton, EmailShareButton,
     FacebookIcon, TwitterIcon, EmailIcon
 } from "react-share";
+import { FaAutoprefixer } from "react-icons/fa";
 
 
 function ShareModel(props){
@@ -25,12 +26,12 @@ function ShareModel(props){
             {close => {return (
                 <div className="mymodal">
                     <a className='close' onClick={close}>&times;</a>
-                    <div className='content' style={{fontSize:'1rem',width:'370px'}}>{props.title}</div>
+                    <div className='content truncateDescription2' style={{fontSize:'1rem',width:'370px'}}>{props.title}</div>
                     <hr />
                     <div className='header' style={{fontSize:'1rem',textAlign:'center'}}>Share via</div>
                     <div>
                         <div style={{padding:'0 40px', display:'inline'}}>
-                        <FacebookShareButton url={props.url} quote={hashtag} children="">
+                        <FacebookShareButton url={props.url} quote={'#' + hashtag} children="">
                             <FacebookIcon size={50} round={true} />
                         </FacebookShareButton>
                         </div>
@@ -43,7 +44,7 @@ function ShareModel(props){
                         <EmailShareButton subject={'#' + hashtag} url={props.url}>
                             <EmailIcon size={50} round={true} />
                         </EmailShareButton>       
-                        </div>                 
+                        </div>           
                     </div>
                 </div>
             )}}

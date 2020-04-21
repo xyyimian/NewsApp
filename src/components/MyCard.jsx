@@ -91,7 +91,7 @@ function BmCard(props) {
                         {props.title.length>42 ? props.title.substring(0,40)+'...' : props.title}
                     </p>
                     <ShareModel title={props.title} url={props.url} />
-                    <FaTrash onClick={() => {notify("Removing ",props.title); props.removeBmContent(props.id); props.onLoading(false, '/favorites'); }} />
+                    <FaTrash onClick={(e) => {notify("Removing ",props.title); e.target.closest('.col-lg-3').style.display="none";props.removeBmContent(props.id);}} />
                 </Card.Title>
                 <Card.Img className='toplineImg' variant='' src={props.image !== undefined ? props.image : (props.switchst ? guardianLogo : nytLogo)} onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.section) }} />
                 <div>
