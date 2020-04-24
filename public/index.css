@@ -35,7 +35,7 @@
 .NewsTag {
   /* margin-left: 70%; */
   float: right;
-  padding: 0 1%;
+  padding: 0 1rem;
   font-size: 1rem;
   color: white;
   display: inline-block;
@@ -101,7 +101,7 @@
 
 .indicator {
   font-size: 2rem;
-  margin-left: 1%;
+  margin-left: 1rem;
 }
 
 .ib {

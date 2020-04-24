@@ -3,6 +3,7 @@ import { Card } from "react-bootstrap";
 import { FaTrash } from 'react-icons/fa'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 import ShareModel from "./ShareModel"
 
 const guardianLogo = 'https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png'
