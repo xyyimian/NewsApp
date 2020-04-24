@@ -124,9 +124,9 @@
 .mymodal {
   font-size: 1rem;
   display: block;
-  width: 24.375rem;
+  /* width: 24.375rem; */
   height: 8.75rem;
-  position: fixed;
+  /* position: fixed; */
   margin: auto;
 }
 

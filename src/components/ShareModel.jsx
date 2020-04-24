@@ -26,21 +26,23 @@ function ShareModel(props){
             {close => {return (
                 <div className="mymodal">
                     <a className='close' onClick={close}>&times;</a>
-                    <div className='content truncateDescription2' style={{fontSize:'1rem',width:'23.125rem'}}>{props.title}</div>
+                    <div style={{display:'inline'}}>
+                        <div className='content truncateDescription2' style={{fontSize:'1rem'}}>{props.title}</div>
+                    </div>
                     <hr />
                     <div className='header' style={{fontSize:'1rem',textAlign:'center'}}>Share via</div>
                     <div>
-                        <div style={{padding:'0 2.5rem', display:'inline'}}>
+                        <div style={{float:'left',width: '33.3%', textAlign:'center', display:'inline'}}>
                         <FacebookShareButton url={props.url} quote={'#' + hashtag} children="">
                             <FacebookIcon size={50} round={true} />
                         </FacebookShareButton>
                         </div>
-                        <div style={{padding: '0 2.5rem', display:'inline' }}>
+                        <div style={{float:'left',width: '33.3%', textAlign:'center', display:'inline' }}>
                         <TwitterShareButton url={props.url} hashtags={[hashtag]} children="">
                             <TwitterIcon size={50} round={true} />
                         </TwitterShareButton>
                         </div>
-                        <div style={{padding: '0 2.5rem', display:'inline' }}>
+                        <div style={{float:'left',width: '33.3%', textAlign:'center', display:'inline' }}>
                         <EmailShareButton subject={'#' + hashtag} url={props.url}>
                             <EmailIcon size={50} round={true} />
                         </EmailShareButton>       
