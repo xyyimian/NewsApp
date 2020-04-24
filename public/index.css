@@ -225,4 +225,20 @@
   float: right;
 }
 
+.news-card-date{
+  padding-left: 10px;
+}
 
+.news-card-share{
+  position: absolute;
+  right: 120px;
+}
+
+.news-card-bookmark{
+  position: absolute;
+  right: 25px;
+}
+
+.pt-0{
+  padding-top: 0px;
+}

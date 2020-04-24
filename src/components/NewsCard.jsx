@@ -59,8 +59,8 @@ function NewsCard(props) {
             <Card className='shadow p-3 m-3 bg-white rounded news-card'>
                 <Card.Title className='italic'>{props.title}</Card.Title>
                 <Card.Text>
-                    <span className='italic' style={{paddingLeft:'10px'}}>{props.date.substring(0,10)}</span>
-                    <span style={{ position:'absolute', right:'120px' }}>
+                    <span className='italic news-card-date'>{props.date.substring(0,10)}</span>
+                    <span className="news-card-share">
                         <FacebookShareButton data-tip='Facebook' url={props.url} quote={hashtag} children="">
                             <FacebookIcon size={25} round={true} />
                         </FacebookShareButton>
@@ -72,8 +72,8 @@ function NewsCard(props) {
                         </EmailShareButton>
                     </span>
 
-                    <span style={{ position:'absolute', right:'25px' }}>
-                        <Button data-tip='Bookmark' style={{paddingTop:'0px'}} variant='link' onClick={() => { handleClick() }}>
+                    <span className="news-card-bookmark">
+                        <Button data-tip='Bookmark' className="pt-0" variant='link' onClick={() => { handleClick() }}>
                             <IconContext.Provider value={{ color: "red", className: "bookmark-icon" }}>
                                 {isSaved ? <FaBookmark size="1.3rem"/> : <FaRegBookmark size="1.3rem"/>}
                             </IconContext.Provider>
@@ -89,7 +89,7 @@ function NewsCard(props) {
                     {stringArray.length >4 &&
                     <Button
                         variant={'link'}
-                        style={{ float: 'right' }}
+                        className="fr"
                         onClick={() => { setOpen(!open) }}
                         ariaControls="collapse-text"
                         ariaExpanded={open}
