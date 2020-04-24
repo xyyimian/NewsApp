@@ -81,7 +81,7 @@ function MyNavbar(props) {
         }
     }
     return (
-        <Navbar className="bg-grad" expand="lg">
+        <Navbar className="bg-grad navbar-dark" expand="lg">
         <ReactTooltip />
         {InitHome()}
             <SearchBox searchReq={SearchReq} inputValue={inputValue} handleInputChange={handleInputChange}/>
