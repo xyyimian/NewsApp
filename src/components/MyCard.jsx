@@ -27,7 +27,7 @@ function DetailReq(switchst, id, onLoading, section) {
 function MyCard(props) {
     
     return (
-            <Card className='shadow p-4 bg-white MyCard-Card'>
+            <Card className='shadow p-4 bg-white' style={{margin: '1.5% 1% 3%', borderRadius: 8 }}>
                 <div className='row'>
                     <div onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.section) }}
                     className='col-lg-3'>
@@ -35,7 +35,7 @@ function MyCard(props) {
                   (props.switchst ? guardianLogo : nytLogo)} />
                     </div>
                     <div className='col-lg-9'>
-                        <Card.Body className='p-0'>
+                        <Card.Body style={{padding:"0"}}>
                             <Card.Title>
                             <div className='il italic' onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.section) }}>
                                 {props.title}
@@ -61,10 +61,10 @@ function MyCard(props) {
 
 function SchCard(props) {
     return (
-            <div className='col-lg-3 ib'>
+            <div className='col-lg-3' style={{ display: 'inline-block' }}>
                 <Card className='shadow p-3 mb-5 bg-white rounded'>
                     <Card.Title>
-                    <p className='il' onClick={() => { DetailReq(props.switchst, props.id, props.onLoading,props.section) }}>
+                    <p style={{display: 'inline'}} onClick={() => { DetailReq(props.switchst, props.id, props.onLoading,props.section) }}>
                         {props.title.length>42 ? props.title.substring(0,40)+'...' : props.title}
                     </p>
                      <ShareModel title={props.title} url={props.url} />
@@ -83,11 +83,11 @@ function SchCard(props) {
 
 function BmCard(props) {
     return (
-        <div className='col-lg-3 ib'>
+        <div className='col-lg-3' style={{ display: 'inline-block' }}>
             <ToastContainer />
-            <Card className='shadow p-3 mb-5 bg-white rounded BmCard-Card' >
+            <Card className='shadow p-3 mb-5 bg-white rounded' style={{margin: '2% 0'}}>
                 <Card.Title >
-                    <p className='il' onClick={() => { DetailReq(props.switchst, props.id, props.onLoading,props.section) }}>
+                    <p style={{display: 'inline'}} onClick={() => { DetailReq(props.switchst, props.id, props.onLoading,props.section) }}>
                         {props.title.length>42 ? props.title.substring(0,40)+'...' : props.title}
                     </p>
                     <ShareModel title={props.title} url={props.url} />

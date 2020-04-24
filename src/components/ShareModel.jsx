@@ -26,21 +26,21 @@ function ShareModel(props){
             {close => {return (
                 <div className="mymodal">
                     <a className='close' onClick={close}>&times;</a>
-                    <div className='content truncateDescription2 ShMod-title'>{props.title}</div>
+                    <div className='content truncateDescription2' style={{fontSize:'1rem',width:'370px'}}>{props.title}</div>
                     <hr />
-                    <div className='header ShMod-via'>Share via</div>
+                    <div className='header' style={{fontSize:'1rem',textAlign:'center'}}>Share via</div>
                     <div>
-                        <div className="ShMod-icon il">
+                        <div style={{padding:'0 40px', display:'inline'}}>
                         <FacebookShareButton url={props.url} quote={'#' + hashtag} children="">
                             <FacebookIcon size={50} round={true} />
                         </FacebookShareButton>
                         </div>
-                        <div className="ShMod-icon il">
+                        <div style={{padding: '0 40px', display:'inline' }}>
                         <TwitterShareButton url={props.url} hashtags={[hashtag]} children="">
                             <TwitterIcon size={50} round={true} />
                         </TwitterShareButton>
                         </div>
-                        <div className="ShMod-icon il">
+                        <div style={{padding: '0 40px', display:'inline' }}>
                         <EmailShareButton subject={'#' + hashtag} url={props.url}>
                             <EmailIcon size={50} round={true} />
                         </EmailShareButton>       

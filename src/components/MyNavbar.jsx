@@ -89,32 +89,32 @@ function MyNavbar(props) {
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between"> 
                 <Form inline>
                     <Nav className="mr-auto">
-                        <Nav.Link href="" className="my-nav-link p-0">
+                        <Nav.Link href="" style={{margin:'8px',padding:'0'}}>
                             <span onClick={SectionReq} className='navkey' style={!selected.localeCompare("home") ? { color: 'white' } : {}} >
                                 Home
                             </span>
                         </Nav.Link>
-                        <Nav.Link href="" className="my-nav-link p-0">
+                        <Nav.Link href="" style={{margin:'8px',padding:'0'}}>
                             <span onClick={SectionReq} className='navkey' style={!selected.localeCompare("world") ? { color: 'white' } : {}}>
                                 World
                             </span>
                         </Nav.Link>
-                        <Nav.Link href="" className="my-nav-link p-0">
+                        <Nav.Link href="" style={{margin:'8px',padding:'0'}}>
                             <span onClick={SectionReq} className='navkey' style={!selected.localeCompare("politics") ? { color: 'white' } : {}}>
                                 Politics
                             </span>
                         </Nav.Link>
-                        <Nav.Link href="" className="my-nav-link p-0">
+                        <Nav.Link href="" style={{margin:'8px',padding:'0'}}>
                             <span onClick={SectionReq} className='navkey' style={!selected.localeCompare("business") ? { color: 'white' } : {}}>
                                 Business
                         </span>
                         </Nav.Link>
-                        <Nav.Link href="" className="my-nav-link p-0">
+                        <Nav.Link href="" style={{margin:'8px',padding:'0'}}>
                             <span onClick={SectionReq} className='navkey' style={!selected.localeCompare("technology") ? { color: 'white' } : {}}>
                                 Technology
                         </span>
                         </Nav.Link>
-                        <Nav.Link href="" className="my-nav-link p-0">
+                        <Nav.Link href="" style={{margin:'8px',padding:'0'}}>
                             <span onClick={SectionReq} className='navkey' style={!selected.localeCompare("sports") ? { color: 'white' } : {}}>
                                 Sports
                         </span>
@@ -136,16 +136,16 @@ function MyNavbar(props) {
                     
                     {props.path !== "/search" && props.path !== "/favorites" && props.path.substring(0,5) !== "/news" &&
                         <Nav>
-                            <Nav.Item className="p-0 ib">
-                                <Navbar.Text className="mynav-text">NYTimes</Navbar.Text>
+                            <Nav.Item style={{padding:'0',display: 'inline-block'}}>
+                                <Navbar.Text style={{ color: '#ffffff', padding:'7px 2px 3px 8px' }}>NYTimes</Navbar.Text>
                             </Nav.Item>
-                            <Nav.Item className="p-0 ib">
-                                <div className="mynav-switch">
+                            <Nav.Item style={{padding:'0',display: 'inline-block'}}>
+                                <div style={{ float: 'left', height: '50%', margin: '7px 2px 3px 8px'}}>
                                     <Switch onColor={'#0387ee'} checked={props.switchst} onChange={handleSwitch} value={props.switchst} draggable={false} checkedIcon={false} uncheckedIcon={false} />
                                 </div>
                             </Nav.Item>
-                            <Nav.Item className="p-0 ib">
-                                <Navbar.Text className="mynav-text">Guardian</Navbar.Text>
+                            <Nav.Item style={{padding:'0',display: 'inline-block'}}>
+                                <Navbar.Text style={{ color: '#ffffff', padding:'7px 2px 3px 8px' }}>Guardian</Navbar.Text>
                             </Nav.Item>
                         </Nav>
                     }

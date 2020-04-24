@@ -13,7 +13,7 @@ function Favorites(props) {
       <div>
         {cardNum !== 0 ? 
         <div className='indicator' >Favorites</div> :
-        <p className='Favorites-p' >You have no saved articles</p>
+        <p className='no-save-ind' style={{textAlign:'center',fontSize:'1.5rem'}}>You have no saved articles</p>
         }
             {props.BmContent.map((info, index) => {
               return (

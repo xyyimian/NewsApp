@@ -46,7 +46,7 @@ function News(props) {
                     url={content.body[0].url}
                     section={content.body[0].section?content.body[0].section:content.section}
                 />
-                <div className='margin2percent' >
+                <div style={{ margin: "2%" }}>
                     <PageWithComments id={content.id}/>
                 </div>
             </div>
