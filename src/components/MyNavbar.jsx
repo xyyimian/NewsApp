@@ -89,32 +89,32 @@ function MyNavbar(props) {
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between"> 
                 <Form inline>
                     <Nav className="mr-auto">
-                        <Nav.Link href="" style={{margin:'8px',padding:'0'}}>
+                        <Nav.Link href="" style={{margin:'0.5rem',padding:'0'}}>
                             <span onClick={SectionReq} className='navkey' style={!selected.localeCompare("home") ? { color: 'white' } : {}} >
                                 Home
                             </span>
                         </Nav.Link>
-                        <Nav.Link href="" style={{margin:'8px',padding:'0'}}>
+                        <Nav.Link href="" style={{margin:'0.5rem',padding:'0'}}>
                             <span onClick={SectionReq} className='navkey' style={!selected.localeCompare("world") ? { color: 'white' } : {}}>
                                 World
                             </span>
                         </Nav.Link>
-                        <Nav.Link href="" style={{margin:'8px',padding:'0'}}>
+                        <Nav.Link href="" style={{margin:'0.5rem',padding:'0'}}>
                             <span onClick={SectionReq} className='navkey' style={!selected.localeCompare("politics") ? { color: 'white' } : {}}>
                                 Politics
                             </span>
                         </Nav.Link>
-                        <Nav.Link href="" style={{margin:'8px',padding:'0'}}>
+                        <Nav.Link href="" style={{margin:'0.5rem',padding:'0'}}>
                             <span onClick={SectionReq} className='navkey' style={!selected.localeCompare("business") ? { color: 'white' } : {}}>
                                 Business
                         </span>
                         </Nav.Link>
-                        <Nav.Link href="" style={{margin:'8px',padding:'0'}}>
+                        <Nav.Link href="" style={{margin:'0.5rem',padding:'0'}}>
                             <span onClick={SectionReq} className='navkey' style={!selected.localeCompare("technology") ? { color: 'white' } : {}}>
                                 Technology
                         </span>
                         </Nav.Link>
-                        <Nav.Link href="" style={{margin:'8px',padding:'0'}}>
+                        <Nav.Link href="" style={{margin:'0.5rem',padding:'0'}}>
                             <span onClick={SectionReq} className='navkey' style={!selected.localeCompare("sports") ? { color: 'white' } : {}}>
                                 Sports
                         </span>
@@ -125,7 +125,7 @@ function MyNavbar(props) {
                 <Form inline>
                 <Nav>
                     <Nav.Item style={{padding:'0'}}>
-                    <span margin="100px">
+                    <span margin="16.25rem">
                         <Button data-tip="Bookmark" variant='link' onClick={() => { onSelected("favorites"); props.onLoading(false, '/favorites'); }}>
                             <IconContext.Provider value={{ color: "white", className: "bookmark-icon" }}>
                                 {props.path === "/favorites" ? <FaBookmark /> : <FaRegBookmark />}
@@ -137,15 +137,15 @@ function MyNavbar(props) {
                     {props.path !== "/search" && props.path !== "/favorites" && props.path.substring(0,5) !== "/news" &&
                         <Nav>
                             <Nav.Item style={{padding:'0',display: 'inline-block'}}>
-                                <Navbar.Text style={{ color: '#ffffff', padding:'7px 2px 3px 8px' }}>NYTimes</Navbar.Text>
+                                <Navbar.Text style={{ color: '#ffffff', padding:'0.4375‬rem 0.125rem 0.1875rem 0.5rem' }}>NYTimes</Navbar.Text>
                             </Nav.Item>
                             <Nav.Item style={{padding:'0',display: 'inline-block'}}>
-                                <div style={{ float: 'left', height: '50%', margin: '7px 2px 3px 8px'}}>
+                                <div style={{ float: 'left', height: '50%', margin: '0.4375‬rem 0.125rem 0.1875rem 0.5rem'}}>
                                     <Switch onColor={'#0387ee'} checked={props.switchst} onChange={handleSwitch} value={props.switchst} draggable={false} checkedIcon={false} uncheckedIcon={false} />
                                 </div>
                             </Nav.Item>
                             <Nav.Item style={{padding:'0',display: 'inline-block'}}>
-                                <Navbar.Text style={{ color: '#ffffff', padding:'7px 2px 3px 8px' }}>Guardian</Navbar.Text>
+                                <Navbar.Text style={{ color: '#ffffff', padding:'0.4375‬rem 0.125rem 0.1875rem 0.5rem' }}>Guardian</Navbar.Text>
                             </Nav.Item>
                         </Nav>
                     }
