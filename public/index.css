@@ -192,3 +192,21 @@
 .BmCard-Card{
   margin: 2% 0;
 }
+
+.ShMod-icon{
+  padding:0 40px;
+}
+
+.ShMod-title{
+  font-size: 1rem;
+  width: 370px;
+}
+
+.ShMod-via{
+  font-size: 1rem;
+  text-align: center;
+}
+
+.fr{
+  float: right;
+}
