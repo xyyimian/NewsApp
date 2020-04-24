@@ -7,7 +7,7 @@ function News() {
     return (
         <div>
             <NewsCard />
-            <div style={{margin: "2%"}}>
+            <div className='margin2percent'>
                 <PageWithComments />
             </div>
         </div>

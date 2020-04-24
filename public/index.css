@@ -170,18 +170,18 @@
 
 
 .nav-link {
-  margin:'8px';
+  margin: 8px;
 }
 
 .mynav-text{
-  color: '#ffffff';
-  padding:'7px 2px 3px 8px';
+  color: #ffffff;
+  padding: 7px 2px 3px 8px;
 }
 
 .mynav-switch{
-  float: 'left';
-  height: '50%';
-  margin: '7px 2px 3px 8px';
+  float: left;
+  height: 50%;
+  margin: 7px 2px 3px 8px;
 }
 
 .MyCard-Card{
@@ -191,4 +191,18 @@
 
 .BmCard-Card{
   margin: 2% 0;
+}
+
+.Favorites-p{
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.MySpinners-Loading{
+  text-align: center;
+  font-weight: 600;
+}
+
+.margin2percent{
+  margin: 2% ;
 }
