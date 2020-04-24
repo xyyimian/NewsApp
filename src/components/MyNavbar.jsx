@@ -8,7 +8,6 @@ import Select from "react-select"
 import SearchBox from "./SearchBox"
 import ReactTooltip from "react-tooltip";
 
-
 function MyNavbar(props) {
     const [selected, setSelected] = useState('');
     function onSelected(newSelected) {
