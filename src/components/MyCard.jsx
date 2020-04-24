@@ -28,7 +28,7 @@ function DetailReq(switchst, id, onLoading, section) {
 function MyCard(props) {
     
     return (
-            <Card className='shadow p-4 bg-white' style={{margin: '1.5% 1% 3%', borderRadius: 8 }}>
+            <Card className='shadow p-4 bg-white' style={{margin: '1.5rem 1rem 3rem', borderRadius: 8 }}>
                 <div className='row'>
                     <div onClick={() => { DetailReq(props.switchst, props.id, props.onLoading, props.section) }}
                     className='col-lg-3'>
@@ -86,7 +86,7 @@ function BmCard(props) {
     return (
         <div className='col-lg-3' style={{ display: 'inline-block' }}>
             <ToastContainer />
-            <Card className='shadow p-3 mb-5 bg-white rounded' style={{margin: '2% 0'}}>
+            <Card className='shadow p-3 mb-5 bg-white rounded' style={{margin: '1.5rem 0'}}>
                 <Card.Title >
                     <p style={{display: 'inline'}} onClick={() => { DetailReq(props.switchst, props.id, props.onLoading,props.section) }}>
                         {props.title.length>42 ? props.title.substring(0,40)+'...' : props.title}

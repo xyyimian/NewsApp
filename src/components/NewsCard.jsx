@@ -11,11 +11,13 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-toastify/dist/ReactToastify.min.css';
 import ReactTooltip from "react-tooltip";
+import { useMediaQuery } from 'react-responsive'
 
 const guardianLogo = 'https://assets.guim.co.uk/images/eada8aa27c12fe2d5afa3a89d3fbae0d/fallback-logo.png'
 const nytLogo = 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Nytimes_hq.jpg'
 
 function NewsCard(props) {
+    const isMobile = useMediaQuery({ query: '(max-device-width: 480px)' });
     const hashtag = "CSCI_571_NewsApp"
     const [open, setOpen] = useState(false);
     const [isSaved, setSaved] = useState((props.BmContent.findIndex(news => news.id === props.id) !== -1) ? true : false);
@@ -63,13 +65,13 @@ function NewsCard(props) {
                     <span className='italic' style={{paddingLeft:'0.625rem'}}>{props.date.substring(0,10)}</span>
                     <span style={{ position:'absolute', right:'7.5rem' }}>
                         <FacebookShareButton data-tip='Facebook' url={props.url} quote={hashtag} children="">
-                            <FacebookIcon size={25} round={true} />
+                            <FacebookIcon size={isMobile?'50':'25'} round={true} />
                         </FacebookShareButton>
                         <TwitterShareButton data-tip='Twitter' url={props.url} hashtags={[hashtag]} children="">
-                            <TwitterIcon size={25} round={true} />
+                            <TwitterIcon size={isMobile?'50':'25'} round={true} />
                         </TwitterShareButton>
                         <EmailShareButton data-tip='Email' subject={'#' + hashtag} url={props.url}>
-                            <EmailIcon size={25} round={true} />
+                            <EmailIcon size={isMobile?'50':'25'} round={true} />
                         </EmailShareButton>
                     </span>
 
