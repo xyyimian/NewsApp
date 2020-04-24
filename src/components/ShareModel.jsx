@@ -6,13 +6,15 @@ import {
     FacebookIcon, TwitterIcon, EmailIcon
 } from "react-share";
 import { FaAutoprefixer } from "react-icons/fa";
+// import { useMediaQuery } from 'react-responsive'
 
 function ShareModel(props){
     const hashtag = "CSCI_571_NewsApp";
+    // const isMobile = useMediaQuery({ query: '(max-device-width: 480px)' });
 
     const contentStyle = {
-        maxWidth: '25.75rem',
-        width: '90%',
+        maxWidth: '25rem',
+        width: '80%',
         height: '10.125rem',
         padding: '0.625rem',
         borderRadius: '0.25rem',
