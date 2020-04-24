@@ -6,11 +6,11 @@ import {
     FacebookIcon, TwitterIcon, EmailIcon
 } from "react-share";
 import { FaAutoprefixer } from "react-icons/fa";
-
+import { useMediaQuery } from 'react-responsive'
 
 function ShareModel(props){
     const hashtag = "CSCI_571_NewsApp";
-
+    const isMobile = useMediaQuery({ query: '(max-device-width: 480px)' });
 
     const contentStyle = {
         maxWidth: '25.75rem',
@@ -32,17 +32,17 @@ function ShareModel(props){
                     <div>
                         <div style={{padding:'0 2.5rem', display:'inline'}}>
                         <FacebookShareButton url={props.url} quote={'#' + hashtag} children="">
-                            <FacebookIcon size={50} round={true} />
+                            <FacebookIcon size={isMobile?'100':'50'} round={true} />
                         </FacebookShareButton>
                         </div>
                         <div style={{padding: '0 2.5rem', display:'inline' }}>
                         <TwitterShareButton url={props.url} hashtags={[hashtag]} children="">
-                            <TwitterIcon size={50} round={true} />
+                            <TwitterIcon size={isMobile?'100':'50'} round={true} />
                         </TwitterShareButton>
                         </div>
                         <div style={{padding: '0 2.5rem', display:'inline' }}>
                         <EmailShareButton subject={'#' + hashtag} url={props.url}>
-                            <EmailIcon size={50} round={true} />
+                            <EmailIcon size={isMobile?'100':'50'} round={true} />
                         </EmailShareButton>       
                         </div>           
                     </div>
