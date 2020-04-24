@@ -13,12 +13,12 @@ function ShareModel(props){
 
 
     const contentStyle = {
-        maxWidth: '412px',
+        maxWidth: '25.75rem',
         width: '90%',
-        height: '162px',
-        padding: '10px',
-        borderRadius: '4px',
-        margin: '30px auto'
+        height: '10.125rem',
+        padding: '0.625rem',
+        borderRadius: '0.25rem',
+        margin: '1.875rem auto'
       };
 
     return(
@@ -26,21 +26,21 @@ function ShareModel(props){
             {close => {return (
                 <div className="mymodal">
                     <a className='close' onClick={close}>&times;</a>
-                    <div className='content truncateDescription2' style={{fontSize:'1rem',width:'370px'}}>{props.title}</div>
+                    <div className='content truncateDescription2' style={{fontSize:'1rem',width:'23.125rem'}}>{props.title}</div>
                     <hr />
                     <div className='header' style={{fontSize:'1rem',textAlign:'center'}}>Share via</div>
                     <div>
-                        <div style={{padding:'0 40px', display:'inline'}}>
+                        <div style={{padding:'0 2.5rem', display:'inline'}}>
                         <FacebookShareButton url={props.url} quote={'#' + hashtag} children="">
                             <FacebookIcon size={50} round={true} />
                         </FacebookShareButton>
                         </div>
-                        <div style={{padding: '0 40px', display:'inline' }}>
+                        <div style={{padding: '0 2.5rem', display:'inline' }}>
                         <TwitterShareButton url={props.url} hashtags={[hashtag]} children="">
                             <TwitterIcon size={50} round={true} />
                         </TwitterShareButton>
                         </div>
-                        <div style={{padding: '0 40px', display:'inline' }}>
+                        <div style={{padding: '0 2.5rem', display:'inline' }}>
                         <EmailShareButton subject={'#' + hashtag} url={props.url}>
                             <EmailIcon size={50} round={true} />
                         </EmailShareButton>       

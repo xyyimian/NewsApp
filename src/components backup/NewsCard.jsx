@@ -14,7 +14,7 @@ function NewsCard(props) {
 
     return (
         <Card className='shadow p-3 mb-5 bg-white rounded news-card'>
-            <Card.Title>{props.title}}</Card.Title>
+            <Card.Title>{props.title}</Card.Title>
             <Card.Text>
                 <span>{props.date}</span>
                 <span style={{ float: 'right' }}>

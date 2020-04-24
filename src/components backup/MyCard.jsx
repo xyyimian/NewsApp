@@ -10,7 +10,7 @@ function MyCard(props) {
                 </div>
                 <div className='col-lg-9'>
                     <Card.Body>
-                        <Card.Title>{props.title}}</Card.Title>
+                        <Card.Title>{props.title}</Card.Title>
                         <Card.Text>
                             {props.description}
                         </Card.Text>
