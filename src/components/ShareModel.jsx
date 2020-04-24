@@ -26,23 +26,25 @@ function ShareModel(props){
             {close => {return (
                 <div className="mymodal">
                     <a className='close' onClick={close}>&times;</a>
-                    <div className='content truncateDescription2' style={{fontSize:'1rem'}}>{props.title}</div>
+                    <div style={{display:'inline'}}>
+                        <div className='content truncateDescription2' style={{fontSize:'1rem'}}>{props.title}</div>
+                    </div>
                     <hr />
                     <div className='header' style={{fontSize:'1rem',textAlign:'center'}}>Share via</div>
-                    <div margin='auto' textAlign="center">
-                        <div style={{padding:'0 5%', display:'inline-block', textAlign:"center"}}>
+                    <div>
+                        <div style={{float:'left',width: '33.3%', textAlign:'center', display:'inline'}}>
                         <FacebookShareButton url={props.url} quote={'#' + hashtag} children="">
-                            <FacebookIcon size={'50'} round={true} />
+                            <FacebookIcon size={50} round={true} />
                         </FacebookShareButton>
                         </div>
-                        <div style={{padding: '0 5%', display:'inline-block', textAlign:"center"}}>
+                        <div style={{float:'left',width: '33.3%', textAlign:'center', display:'inline' }}>
                         <TwitterShareButton url={props.url} hashtags={[hashtag]} children="">
-                            <TwitterIcon size={'50'} round={true} />
+                            <TwitterIcon size={50} round={true} />
                         </TwitterShareButton>
                         </div>
-                        <div style={{padding: '0 5%', display:'inline-block', textAlign:"center"}}>
+                        <div style={{float:'left',width: '33.3%', textAlign:'center', display:'inline' }}>
                         <EmailShareButton subject={'#' + hashtag} url={props.url}>
-                            <EmailIcon size={'50'} round={true} />
+                            <EmailIcon size={50} round={true} />
                         </EmailShareButton>       
                         </div>           
                     </div>

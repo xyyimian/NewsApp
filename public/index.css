@@ -74,7 +74,8 @@
 
 .news-card {
   width: 98%;
-  margin: auto;
+  padding:1rem;
+  margin:1rem auto;
 }
 
 .truncateDescription {
@@ -123,10 +124,10 @@
 .mymodal {
   /* font-size: 1rem;
   display: block;
-  width: 24.375rem;
-  height: 8.75rem; */
-  /* position: fixed;
-  margin: auto; */
+  /* width: 24.375rem; */
+  height: 8.75rem;
+  /* position: fixed; */
+  margin: auto;
 }
 
 
