@@ -9,6 +9,7 @@ import { FaAngleDown, FaAngleUp } from "react-icons/fa"
 import { FaRegBookmark, FaBookmark } from 'react-icons/fa'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 import ReactTooltip from "react-tooltip";
 import { useMediaQuery } from 'react-responsive'
 
