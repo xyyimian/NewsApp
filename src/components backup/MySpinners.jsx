@@ -8,7 +8,7 @@ function MySpinners() {
 
     const override = css`
         display: block;
-        margin: 200px auto;
+        margin: 12.5rem auto;
     `;
     return (
         <div>

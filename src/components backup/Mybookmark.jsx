@@ -23,7 +23,7 @@ function Mybookmark(props) {
     }
 
     return (
-        <span margin="100px">
+        <span margin="6.25rem">
             <Button variant='link' onClick={handleClick}>
                 <IconContext.Provider value={{ color: "red", className: "bookmark-icon" }}>
                     {isSaved ? <FaBookmark /> : <FaRegBookmark />}
