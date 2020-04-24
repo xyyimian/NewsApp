@@ -137,15 +137,15 @@ function MyNavbar(props) {
                     {props.path !== "/search" && props.path !== "/favorites" && props.path.substring(0,5) !== "/news" &&
                         <Nav>
                             <Nav.Item style={{padding:'0',display: 'inline-block'}}>
-                                <Navbar.Text style={{ color: '#ffffff', padding:'0.4375‬rem 0.125rem 0.1875rem 0.5rem' }}>NYTimes</Navbar.Text>
+                                <Navbar.Text style={{ color: '#ffffff', padding:'7px 2px 3px 8px' }}>NYTimes</Navbar.Text>
                             </Nav.Item>
                             <Nav.Item style={{padding:'0',display: 'inline-block'}}>
-                                <div style={{ float: 'left', height: '50%', margin: '0.4375‬rem 0.125rem 0.1875rem 0.5rem'}}>
+                                <div style={{ float: 'left', height: '50%', margin: '7px 2px 3px 8px'}}>
                                     <Switch onColor={'#0387ee'} checked={props.switchst} onChange={handleSwitch} value={props.switchst} draggable={false} checkedIcon={false} uncheckedIcon={false} />
                                 </div>
                             </Nav.Item>
                             <Nav.Item style={{padding:'0',display: 'inline-block'}}>
-                                <Navbar.Text style={{ color: '#ffffff', padding:'0.4375‬rem 0.125rem 0.1875rem 0.5rem' }}>Guardian</Navbar.Text>
+                                <Navbar.Text style={{ color: '#ffffff', padding:'7px 2px 3px 8px' }}>Guardian</Navbar.Text>
                             </Nav.Item>
                         </Nav>
                     }
